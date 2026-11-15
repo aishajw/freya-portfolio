@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Case Study — Freya Young</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1A1A18;
+  --mid:#6B6B62;
+  --muted:#A5A49C;
+  --cream:#F9F7F4;
+  --cream-dark:#EDEBE6;
+  --blue:#3D6080;
+  --accent:#7A5C3A;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --gutter:72px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 var(--gutter);height:64px;background:transparent;border-bottom:1px solid transparent;transition:background .3s,border-color .3s;}
+.nav.scrolled{background:rgba(249,247,244,.92);backdrop-filter:blur(8px);border-bottom-color:var(--cream-dark);}
+.nav__back{font-family:'Raleway',var(--sans);font-size:13px;font-weight:400;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:6px;letter-spacing:.02em;}
+.nav__back::before{content:'←';}
+.nav__back:hover{color:var(--blue);}
+.nav__title{font-family:var(--serif);font-style:italic;font-size:18px;font-weight:300;color:var(--ink);opacity:0;transition:opacity .3s;}
+.nav__title.visible{opacity:1;}
+
+/* HERO */
+.cs-hero{height:100svh;position:sticky;top:0;z-index:1;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.cs-hero__bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .1s linear;}
+.cs-hero__overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.1) 0%,rgba(0,0,0,.35) 100%);}
+.cs-hero__label{position:relative;z-index:2;font-family:'Raleway',var(--sans);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.4);padding:7px 16px;border-radius:0;}
+
+/* INTRO */
+.cs-intro{padding:100px var(--gutter) 80px;text-align:center;max-width:900px;margin:0 auto;}
+.cs-intro__eyebrow{font-family:'Raleway',var(--sans);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:24px;}
+.cs-intro__title{font-family:var(--serif);font-style:italic;font-size:clamp(44px,6vw,80px);font-weight:300;line-height:1.05;color:var(--ink);margin-bottom:28px;}
+.cs-intro__sub{font-family:'Raleway',var(--sans);font-size:clamp(15px,1.6vw,20px);font-weight:300;color:var(--mid);line-height:1.75;max-width:680px;margin:0 auto;}
+.cs-intro__sub mark{background:#F0E8A0;color:var(--ink);padding:0 3px;border-radius:2px;}
+
+/* METADATA */
+.cs-meta{border-top:1px solid var(--cream-dark);border-bottom:1px solid var(--cream-dark);display:grid;grid-template-columns:repeat(4,1fr);margin:0 var(--gutter);}
+.cs-meta__item{padding:28px 0;display:flex;flex-direction:column;gap:8px;}
+.cs-meta__item+.cs-meta__item{border-left:1px solid var(--cream-dark);padding-left:32px;}
+.cs-meta__icon{font-size:14px;color:var(--blue);margin-bottom:2px;}
+.cs-meta__label{font-family:'Raleway',var(--sans);font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+.cs-meta__value{font-family:var(--sans);font-size:18px;font-weight:400;color:var(--ink);line-height:1.5;}
+.cs-meta__value span{display:block;color:var(--mid);font-size:14px;}
+
+/* SECTION NAV (right dots) */
+.cs-nav{position:fixed;right:28px;top:50%;transform:translateY(-50%);z-index:50;display:flex;flex-direction:column;gap:12px;}
+.cs-nav__dot{width:8px;height:8px;border-radius:50%;background:transparent;border:1.5px solid var(--muted);cursor:pointer;transition:background .2s,border-color .2s;display:block;}
+.cs-nav__dot.active{background:var(--blue);border-color:var(--blue);}
+.cs-nav__dot:hover{border-color:var(--blue);}
+
+/* SECTIONS */
+.cs-section{padding:120px var(--gutter);max-width:1100px;margin:0 auto;}
+.cs-section--narrow{max-width:780px;}
+.cs-section__label{display:flex;align-items:center;gap:8px;font-family:'Raleway',var(--sans);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:32px;}
+.cs-section__label::before{content:'';display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--blue);flex-shrink:0;}
+.cs-section__heading{font-family:var(--serif);font-size:clamp(32px,4vw,54px);font-weight:300;line-height:1.15;color:var(--ink);margin-bottom:24px;}
+.cs-section__heading em{font-style:italic;}
+.cs-section__body{font-family:'Raleway',var(--sans);font-size:clamp(14px,1.4vw,17px);font-weight:300;color:var(--mid);line-height:1.9;max-width:620px;}
+.cs-section__body+.cs-section__body{margin-top:16px;}
+
+/* PULL QUOTE — large scroll-reveal text */
+.cs-quote{padding:120px var(--gutter);text-align:center;}
+.cs-quote__text{font-family:var(--serif);font-size:clamp(28px,3.8vw,52px);font-weight:300;line-height:1.3;color:var(--ink);max-width:900px;margin:0 auto;}
+.cs-quote__text.reveal span{color:var(--muted);transition:color .4s ease;}
+.cs-quote__text.reveal span.lit{color:var(--ink);}
+
+/* TWO COL FEATURES */
+.cs-features{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:48px;}
+.cs-feature{padding-top:24px;border-top:1px solid var(--cream-dark);}
+.cs-feature__icon{font-size:16px;margin-bottom:12px;}
+.cs-feature__title{font-family:var(--sans);font-size:15px;font-weight:400;color:var(--ink);margin-bottom:8px;}
+.cs-feature__body{font-family:'Raleway',var(--sans);font-size:13px;font-weight:300;color:var(--mid);line-height:1.75;}
+
+/* FULL IMAGE */
+.cs-image{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;}
+.cs-image--tall{aspect-ratio:4/3;}
+.cs-image-wrap{margin:0;overflow:hidden;}
+.cs-image-wrap--padded{margin:0 var(--gutter);}
+.cs-image-caption{font-family:'Raleway',var(--sans);font-size:11px;font-weight:400;color:var(--muted);letter-spacing:.04em;padding:12px var(--gutter) 0;text-align:center;}
+
+/* GRID IMAGES */
+.cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin:0;}
+.cs-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;}
+.cs-grid--3{grid-template-columns:repeat(3,1fr);}
+
+/* NEXT PROJECT */
+.cs-next{border-top:1px solid var(--cream-dark);padding:80px var(--gutter);display:flex;align-items:center;justify-content:space-between;}
+.cs-next__label{font-family:'Raleway',var(--sans);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+.cs-next__title{font-family:var(--serif);font-style:italic;font-size:clamp(28px,4vw,48px);font-weight:300;color:var(--ink);}
+.cs-next a{text-decoration:none;color:inherit;}
+.cs-next a:hover .cs-next__title{color:var(--blue);}
+.cs-next__arrow{font-size:32px;color:var(--muted);}
+
+/* BODY WRAPPER — concave scoop, scrolls over sticky hero */
+.cs-body{position:relative;z-index:2;background:var(--cream);}
+.cs-body::before{content:'';position:absolute;bottom:100%;left:50%;transform:translateX(-50%);width:120vw;height:72px;background:var(--cream);border-radius:0 0 50% 50%;}
+
+/* SCROLL REVEAL */
+.reveal-fade{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+.reveal-fade.in{opacity:1;transform:translateY(0);}
+
+@media(max-width:768px){
+  :root{--gutter:24px;}
+  .cs-meta{grid-template-columns:1fr 1fr;}
+  .cs-meta__item:nth-child(3){border-left:none;padding-left:0;}
+  .cs-features{grid-template-columns:1fr;}
+  .cs-nav{display:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="csNav">
+  <a class="nav__back" href="index.html">All work</a>
+  <span class="nav__title" id="csNavTitle">Project Title</span>
+</nav>
+
+<!-- RIGHT DOT NAV -->
+<nav class="cs-nav" id="csSectionNav" aria-label="Section navigation">
+  <a class="cs-nav__dot active" href="#brief" data-section="brief"></a>
+  <a class="cs-nav__dot" href="#problem" data-section="problem"></a>
+  <a class="cs-nav__dot" href="#research" data-section="research"></a>
+  <a class="cs-nav__dot" href="#process" data-section="process"></a>
+  <a class="cs-nav__dot" href="#outcome" data-section="outcome"></a>
+</nav>
+
+<!-- HERO -->
+<section class="cs-hero" id="csHero">
+  <div class="cs-hero__bg" id="csHeroBg" style="background-image:url('');background-color:#DDDBD4;"></div>
+  <div class="cs-hero__overlay"></div>
+  <span class="cs-hero__label">Case study</span>
+</section>
+
+<!-- BODY (arched wrapper scrolls over sticky hero) -->
+<div class="cs-body">
+
+<!-- INTRO -->
+<section class="cs-intro">
+  <p class="cs-intro__eyebrow">Case study &middot; Design Strategy &amp; Research</p>
+  <h1 class="cs-intro__title">Project Title</h1>
+  <p class="cs-intro__sub">One sentence that describes what this project was about — the <mark>core problem</mark> and what made it worth solving.</p>
+</section>
+
+<!-- METADATA -->
+<div class="cs-meta">
+  <div class="cs-meta__item">
+    <span class="cs-meta__icon">✦</span>
+    <span class="cs-meta__label">Role</span>
+    <div class="cs-meta__value">Design Strategist<span>Lead researcher</span></div>
+  </div>
+  <div class="cs-meta__item">
+    <span class="cs-meta__icon">◎</span>
+    <span class="cs-meta__label">Company</span>
+    <div class="cs-meta__value">Visa<span>Payments &amp; Commerce</span></div>
+  </div>
+  <div class="cs-meta__item">
+    <span class="cs-meta__icon">◷</span>
+    <span class="cs-meta__label">Timeline</span>
+    <div class="cs-meta__value">3 months<span>2024</span></div>
+  </div>
+  <div class="cs-meta__item">
+    <span class="cs-meta__icon">◈</span>
+    <span class="cs-meta__label">Methods</span>
+    <div class="cs-meta__value">Discovery, synthesis<span>Figma, Dovetail</span></div>
+  </div>
+</div>
+
+<!-- BRIEF -->
+<section class="cs-section cs-section--narrow reveal-fade" id="brief">
+  <p class="cs-section__label">The brief</p>
+  <div class="cs-quote">
+    <p class="cs-quote__text reveal" id="briefQuote">
+      <span>How do we make</span>
+      <span> something unfamiliar</span>
+      <span> feel obvious</span>
+      <span> to the people</span>
+      <span> who need it most,</span>
+      <span> before we know</span>
+      <span> exactly what it is?</span>
+    </p>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="cs-section reveal-fade" id="problem">
+  <p class="cs-section__label">The problem</p>
+  <h2 class="cs-section__heading">What problem did I come across?</h2>
+  <p class="cs-section__body">Describe the core tension or challenge you were trying to resolve. What was broken, unclear, or missing? Keep it specific — name the friction, not just the category.</p>
+  <div class="cs-features">
+    <div class="cs-feature">
+      <div class="cs-feature__icon">◎</div>
+      <p class="cs-feature__title">Insight one</p>
+      <p class="cs-feature__body">Brief description of the first key problem dimension.</p>
+    </div>
+    <div class="cs-feature">
+      <div class="cs-feature__icon">◎</div>
+      <p class="cs-feature__title">Insight two</p>
+      <p class="cs-feature__body">Brief description of the second key problem dimension.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FULL IMAGE -->
+<figure class="cs-image-wrap">
+  <img class="cs-image" src="" alt="Project image" style="background:#DDDBD4;min-height:400px;">
+</figure>
+<p class="cs-image-caption">Caption — what this image shows</p>
+
+<!-- RESEARCH -->
+<section class="cs-section reveal-fade" id="research">
+  <p class="cs-section__label">Research</p>
+  <h2 class="cs-section__heading">What I found out</h2>
+  <p class="cs-section__body">Describe your research approach and the key themes that emerged. What surprised you? What confirmed a hunch? Be specific about methods — interviews, workshops, desk research.</p>
+  <p class="cs-section__body" style="margin-top:16px;">A second paragraph if needed — perhaps a key insight or a moment of reframing.</p>
+</section>
+
+<!-- PROCESS -->
+<section class="cs-section reveal-fade" id="process">
+  <p class="cs-section__label">Process</p>
+  <h2 class="cs-section__heading">How I worked through it</h2>
+  <p class="cs-section__body">Describe your design process — how you moved from insight to direction. What frameworks or approaches did you use? What decisions did you make and why?</p>
+</section>
+
+<!-- IMAGE GRID -->
+<div class="cs-grid cs-grid--3">
+  <img src="" alt="" style="background:#E8E6E0;min-height:200px;">
+  <img src="" alt="" style="background:#DDDBD4;min-height:200px;">
+  <img src="" alt="" style="background:#D3D1CB;min-height:200px;">
+</div>
+
+<!-- OUTCOME -->
+<section class="cs-section reveal-fade" id="outcome">
+  <p class="cs-section__label">Outcome</p>
+  <h2 class="cs-section__heading">What it became</h2>
+  <p class="cs-section__body">Describe the output — what you shipped, recommended, or handed over. What impact did it have? Be honest about what you can and can't measure.</p>
+</section>
+
+<!-- NEXT PROJECT -->
+<div class="cs-next">
+  <div>
+    <p class="cs-next__label">Next project</p>
+    <a href="#">
+      <p class="cs-next__title">Next Project Name →</p>
+    </a>
+  </div>
+</div>
+
+</div><!-- /cs-body -->
+
+<script>
+(function(){
+  var nav = document.getElementById('csNav');
+  var navTitle = document.getElementById('csNavTitle');
+  var heroBg = document.getElementById('csHeroBg');
+  var hero = document.getElementById('csHero');
+  var heroH = hero.offsetHeight;
+
+  // Nav scroll
+  window.addEventListener('scroll', function(){
+    var y = window.scrollY;
+    if(y > 40) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
+    if(y > heroH * 0.6) navTitle.classList.add('visible'); else navTitle.classList.remove('visible');
+    // subtle parallax on hero
+    if(y < heroH) heroBg.style.transform = 'translateY('+(y*0.3)+'px)';
+  },{passive:true});
+
+  // Scroll reveal
+  var revealEls = document.querySelectorAll('.reveal-fade');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  },{threshold:0.15});
+  revealEls.forEach(function(el){ io.observe(el); });
+
+  // Pull quote word-by-word reveal
+  var quotes = document.querySelectorAll('.cs-quote__text.reveal');
+  var qio = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var spans = e.target.querySelectorAll('span');
+      spans.forEach(function(s,i){
+        setTimeout(function(){ s.classList.add('lit'); }, i * 120);
+      });
+      qio.unobserve(e.target);
+    });
+  },{threshold:0.5});
+  quotes.forEach(function(q){ qio.observe(q); });
+
+  // Section nav dots
+  var dots = document.querySelectorAll('.cs-nav__dot');
+  var sections = Array.from(dots).map(function(d){
+    return document.getElementById(d.dataset.section);
+  }).filter(Boolean);
+  var sio = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        dots.forEach(function(d){ d.classList.remove('active'); });
+        var idx = sections.indexOf(e.target);
+        if(idx > -1 && dots[idx]) dots[idx].classList.add('active');
+      }
+    });
+  },{threshold:0.4});
+  sections.forEach(function(s){ sio.observe(s); });
+})();
+</script>
+</body>
+</html>

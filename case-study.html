@@ -18,11 +18,11 @@
   --accent:#7A5C3A;
   --serif:'Cormorant Garamond',Georgia,serif;
   --sans:'DM Sans',system-ui,sans-serif;
-  --gutter:72px;
+  --gutter:300px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{background:var(--cream);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;}
+html{scroll-behavior:smooth;overflow-x:hidden;}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
 
 /* NAV */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 var(--gutter);height:64px;background:transparent;border-bottom:1px solid transparent;transition:background .3s,border-color .3s;}
@@ -34,7 +34,7 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);-webkit-fo
 .nav__title.visible{opacity:1;}
 
 /* HERO */
-.cs-hero{height:100svh;position:sticky;top:0;z-index:1;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.cs-hero{height:70svh;position:sticky;top:0;z-index:1;overflow:hidden;display:flex;align-items:center;justify-content:center;}
 .cs-hero__bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .1s linear;}
 .cs-hero__overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.1) 0%,rgba(0,0,0,.35) 100%);}
 .cs-hero__label{position:relative;z-index:2;font-family:'Raleway',var(--sans);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.4);padding:7px 16px;border-radius:0;}
@@ -62,38 +62,41 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);-webkit-fo
 .cs-nav__dot:hover{border-color:var(--blue);}
 
 /* SECTIONS */
-.cs-section{padding:120px var(--gutter);max-width:1100px;margin:0 auto;}
-.cs-section--narrow{max-width:780px;}
+.cs-section{padding:80px var(--gutter) 48px;display:grid;grid-template-columns:1fr 360px;gap:64px;align-items:start;}
+.cs-section--wide{grid-template-columns:1fr;}
 .cs-section__label{display:flex;align-items:center;gap:8px;font-family:'Raleway',var(--sans);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:32px;}
 .cs-section__label::before{content:'';display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--blue);flex-shrink:0;}
-.cs-section__heading{font-family:var(--serif);font-size:clamp(32px,4vw,54px);font-weight:300;line-height:1.15;color:var(--ink);margin-bottom:24px;}
+.cs-section__heading{font-family:'Raleway',var(--sans);font-size:clamp(18px,calc(3.2vw - 1.5rem),32px);font-weight:300;line-height:1.15;color:var(--ink);margin-bottom:24px;}
 .cs-section__heading em{font-style:italic;}
-.cs-section__body{font-family:'Raleway',var(--sans);font-size:clamp(14px,1.4vw,17px);font-weight:300;color:var(--mid);line-height:1.9;max-width:620px;}
+.cs-section__body{font-family:'Raleway',var(--sans);font-size:clamp(14px,1.4vw,17px);font-weight:400;color:var(--ink);line-height:1.9;}
 .cs-section__body+.cs-section__body{margin-top:16px;}
+.cs-section__img{position:sticky;top:80px;}
+.cs-section__img img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#DDDBD4;}
+.cs-section__img figcaption{font-family:'Raleway',var(--sans);font-size:11px;color:var(--muted);letter-spacing:.04em;margin-top:10px;}
 
 /* PULL QUOTE — large scroll-reveal text */
-.cs-quote{padding:120px var(--gutter);text-align:center;}
-.cs-quote__text{font-family:var(--serif);font-size:clamp(28px,3.8vw,52px);font-weight:300;line-height:1.3;color:var(--ink);max-width:900px;margin:0 auto;}
+.cs-quote{padding:60px var(--gutter);text-align:center;}
+.cs-quote__text{font-family:var(--serif);font-style:italic;font-size:clamp(22px,2.6vw,36px);font-weight:300;line-height:1.4;color:var(--ink);max-width:1200px;margin:0 auto;}
 .cs-quote__text.reveal span{color:var(--muted);transition:color .4s ease;}
 .cs-quote__text.reveal span.lit{color:var(--ink);}
 
-/* TWO COL FEATURES */
-.cs-features{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:48px;}
+/* FEATURES */
+.cs-features{display:flex;flex-direction:column;gap:28px;margin-top:32px;}
 .cs-feature{padding-top:24px;border-top:1px solid var(--cream-dark);}
 .cs-feature__icon{font-size:16px;margin-bottom:12px;}
 .cs-feature__title{font-family:var(--sans);font-size:15px;font-weight:400;color:var(--ink);margin-bottom:8px;}
 .cs-feature__body{font-family:'Raleway',var(--sans);font-size:13px;font-weight:300;color:var(--mid);line-height:1.75;}
 
 /* FULL IMAGE */
-.cs-image{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;}
-.cs-image--tall{aspect-ratio:4/3;}
+.cs-image{width:100%;aspect-ratio:21/9;object-fit:cover;display:block;}
+.cs-image--tall{aspect-ratio:16/9;}
 .cs-image-wrap{margin:0;overflow:hidden;}
 .cs-image-wrap--padded{margin:0 var(--gutter);}
 .cs-image-caption{font-family:'Raleway',var(--sans);font-size:11px;font-weight:400;color:var(--muted);letter-spacing:.04em;padding:12px var(--gutter) 0;text-align:center;}
 
 /* GRID IMAGES */
 .cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin:0;}
-.cs-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;}
+.cs-grid img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block;}
 .cs-grid--3{grid-template-columns:repeat(3,1fr);}
 
 /* NEXT PROJECT */
@@ -104,9 +107,10 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);-webkit-fo
 .cs-next a:hover .cs-next__title{color:var(--blue);}
 .cs-next__arrow{font-size:32px;color:var(--muted);}
 
-/* BODY WRAPPER — concave scoop, scrolls over sticky hero */
+/* BODY WRAPPER — scrolls over sticky hero */
 .cs-body{position:relative;z-index:2;background:var(--cream);}
-.cs-body::before{content:'';position:absolute;bottom:100%;left:50%;transform:translateX(-50%);width:120vw;height:72px;background:var(--cream);border-radius:0 0 50% 50%;}
+.cs-wave{position:absolute;bottom:100%;left:0;right:0;height:80px;line-height:0;pointer-events:none;}
+.cs-wave svg{width:100%;height:100%;display:block;}
 
 /* SCROLL REVEAL */
 .reveal-fade{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
@@ -114,9 +118,9 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);-webkit-fo
 
 @media(max-width:768px){
   :root{--gutter:24px;}
+  .cs-section{grid-template-columns:1fr;}
   .cs-meta{grid-template-columns:1fr 1fr;}
   .cs-meta__item:nth-child(3){border-left:none;padding-left:0;}
-  .cs-features{grid-template-columns:1fr;}
   .cs-nav{display:none;}
 }
 </style>
@@ -147,6 +151,7 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);-webkit-fo
 
 <!-- BODY (arched wrapper scrolls over sticky hero) -->
 <div class="cs-body">
+<div class="cs-wave" aria-hidden="true"><svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,0 Q720,80 1440,0 L1440,80 L0,80 Z" fill="#F9F7F4"/></svg></div>
 
 <!-- INTRO -->
 <section class="cs-intro">
@@ -180,73 +185,80 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);-webkit-fo
 </div>
 
 <!-- BRIEF -->
-<section class="cs-section cs-section--narrow reveal-fade" id="brief">
-  <p class="cs-section__label">The brief</p>
-  <div class="cs-quote">
-    <p class="cs-quote__text reveal" id="briefQuote">
-      <span>How do we make</span>
-      <span> something unfamiliar</span>
-      <span> feel obvious</span>
-      <span> to the people</span>
-      <span> who need it most,</span>
-      <span> before we know</span>
-      <span> exactly what it is?</span>
-    </p>
+<section class="cs-section cs-section--wide reveal-fade" id="brief" style="text-align:center;padding-left:150px;padding-right:150px;">
+  <div>
+    <p class="cs-section__label" style="justify-content:center;">The brief</p>
+    <div class="cs-quote">
+      <p class="cs-quote__text reveal" id="briefQuote">
+        <span>How do you make</span>
+        <span> something completely new</span>
+        <span> feel immediately familiar</span>
+        <span> to the people</span>
+        <span> who have never seen it before,</span>
+        <span> in a space</span>
+        <span> that wasn’t built</span>
+        <span> for this kind of thinking</span>
+        <span> in the first place?</span>
+      </p>
+    </div>
   </div>
 </section>
 
 <!-- PROBLEM -->
 <section class="cs-section reveal-fade" id="problem">
-  <p class="cs-section__label">The problem</p>
-  <h2 class="cs-section__heading">What problem did I come across?</h2>
-  <p class="cs-section__body">Describe the core tension or challenge you were trying to resolve. What was broken, unclear, or missing? Keep it specific — name the friction, not just the category.</p>
-  <div class="cs-features">
-    <div class="cs-feature">
-      <div class="cs-feature__icon">◎</div>
-      <p class="cs-feature__title">Insight one</p>
-      <p class="cs-feature__body">Brief description of the first key problem dimension.</p>
-    </div>
-    <div class="cs-feature">
-      <div class="cs-feature__icon">◎</div>
-      <p class="cs-feature__title">Insight two</p>
-      <p class="cs-feature__body">Brief description of the second key problem dimension.</p>
+  <div class="cs-section__content">
+    <p class="cs-section__label">The problem</p>
+    <h2 class="cs-section__heading">What problem did I come across?</h2>
+    <p class="cs-section__body">Describe the core tension or challenge you were trying to resolve. What was broken, unclear, or missing? Keep it specific — name the friction, not just the category.</p>
+    <div class="cs-features">
+      <div class="cs-feature">
+        <div class="cs-feature__icon">◎</div>
+        <p class="cs-feature__title">Insight one</p>
+        <p class="cs-feature__body">Brief description of the first key problem dimension.</p>
+      </div>
+      <div class="cs-feature">
+        <div class="cs-feature__icon">◎</div>
+        <p class="cs-feature__title">Insight two</p>
+        <p class="cs-feature__body">Brief description of the second key problem dimension.</p>
+      </div>
     </div>
   </div>
+  <figure class="cs-section__img">
+    <img src="" alt="Project image">
+    <figcaption>Caption — what this image shows</figcaption>
+  </figure>
 </section>
-
-<!-- FULL IMAGE -->
-<figure class="cs-image-wrap">
-  <img class="cs-image" src="" alt="Project image" style="background:#DDDBD4;min-height:400px;">
-</figure>
-<p class="cs-image-caption">Caption — what this image shows</p>
 
 <!-- RESEARCH -->
 <section class="cs-section reveal-fade" id="research">
-  <p class="cs-section__label">Research</p>
-  <h2 class="cs-section__heading">What I found out</h2>
-  <p class="cs-section__body">Describe your research approach and the key themes that emerged. What surprised you? What confirmed a hunch? Be specific about methods — interviews, workshops, desk research.</p>
-  <p class="cs-section__body" style="margin-top:16px;">A second paragraph if needed — perhaps a key insight or a moment of reframing.</p>
+  <div class="cs-section__content">
+    <p class="cs-section__label">Research</p>
+    <h2 class="cs-section__heading">What I found out</h2>
+    <p class="cs-section__body">Describe your research approach and the key themes that emerged. What surprised you? What confirmed a hunch? Be specific about methods — interviews, workshops, desk research.</p>
+    <p class="cs-section__body">A second paragraph if needed — perhaps a key insight or a moment of reframing.</p>
+  </div>
+  <figure class="cs-section__img">
+    <img src="" alt="Research image">
+    <figcaption>Caption — what this image shows</figcaption>
+  </figure>
 </section>
 
 <!-- PROCESS -->
-<section class="cs-section reveal-fade" id="process">
-  <p class="cs-section__label">Process</p>
-  <h2 class="cs-section__heading">How I worked through it</h2>
-  <p class="cs-section__body">Describe your design process — how you moved from insight to direction. What frameworks or approaches did you use? What decisions did you make and why?</p>
+<section class="cs-section cs-section--wide reveal-fade" id="process">
+  <div class="cs-section__content">
+    <p class="cs-section__label">Process</p>
+    <h2 class="cs-section__heading">How I worked through it</h2>
+    <p class="cs-section__body">Describe your design process — how you moved from insight to direction. What frameworks or approaches did you use? What decisions did you make and why?</p>
+  </div>
 </section>
 
-<!-- IMAGE GRID -->
-<div class="cs-grid cs-grid--3">
-  <img src="" alt="" style="background:#E8E6E0;min-height:200px;">
-  <img src="" alt="" style="background:#DDDBD4;min-height:200px;">
-  <img src="" alt="" style="background:#D3D1CB;min-height:200px;">
-</div>
-
 <!-- OUTCOME -->
-<section class="cs-section reveal-fade" id="outcome">
-  <p class="cs-section__label">Outcome</p>
-  <h2 class="cs-section__heading">What it became</h2>
-  <p class="cs-section__body">Describe the output — what you shipped, recommended, or handed over. What impact did it have? Be honest about what you can and can't measure.</p>
+<section class="cs-section cs-section--wide reveal-fade" id="outcome">
+  <div class="cs-section__content">
+    <p class="cs-section__label">Outcome</p>
+    <h2 class="cs-section__heading">What it became</h2>
+    <p class="cs-section__body">Describe the output — what you shipped, recommended, or handed over. What impact did it have? Be honest about what you can and can’t measure.</p>
+  </div>
 </section>
 
 <!-- NEXT PROJECT -->

@@ -323,14 +323,14 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
 .about-meta{margin-top:32px;border-top:1px solid rgba(26,26,24,.12);display:grid;grid-template-columns:1fr 1fr;gap:0 32px;}
 .about-meta-item{padding:16px 0;border-bottom:1px solid rgba(26,26,24,.12);min-width:0;}
 .about-meta-item:last-child{border-bottom:none;}
-.about-meta-yr{font-family:'Raleway',var(--sans);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);opacity:.65;margin-bottom:5px;}
-.about-meta-org{font-family:var(--sans);font-size:14px;font-weight:500;color:var(--ink);}
-.about-meta-role{font-family:var(--sans);font-size:14px;font-weight:300;color:var(--mid);}
+.about-meta-yr{font-family:'Raleway',var(--sans);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);opacity:.65;margin-bottom:6px;}
+.about-meta-org{font-family:var(--sans);font-size:16px;font-weight:600;color:var(--ink);}
+.about-meta-role{font-family:var(--sans);font-size:16px;font-weight:400;color:var(--mid);}
 .about-meta-slash{color:rgba(26,26,24,.3);margin:0 6px;}
-.about-meta-sub{font-family:'Raleway',var(--sans);font-size:11px;letter-spacing:.04em;color:var(--mid);opacity:.7;margin-top:3px;}
+.about-meta-sub{font-family:'Raleway',var(--sans);font-size:12px;letter-spacing:.03em;color:var(--mid);opacity:.7;margin-top:4px;}
 .about-meta-chips{display:flex;flex-wrap:wrap;gap:6px;padding:16px 0 0;}
-.about-meta-chip{font-family:'Raleway',var(--sans);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--mid);padding:6px 12px;border:1px solid rgba(26,26,24,.2);}
-.about-cv-sticky{padding:40px 0 0;max-width:568px;}
+.about-meta-chip{font-family:'Raleway',var(--sans);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mid);padding:8px 14px;border:1px solid rgba(26,26,24,.2);}
+
 .about-right{flex:0 0 auto;margin-left:auto;position:sticky;top:0;height:100vh;display:flex;align-items:center;width:calc(clamp(260px,32vw,420px) + 4.5rem + 248px);}
 .about-panel{position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-start;padding:0 248px 0 0;opacity:0;transition:opacity .5s ease;pointer-events:none;}
 .about-panel.active{opacity:1;pointer-events:auto;}
@@ -462,8 +462,9 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
         <div class="about-meta">
           <div class="about-meta-item">
             <div class="about-meta-yr">2021 – 2026</div>
-            <div class="about-meta-org">Visa</div>
-            <div class="about-meta-sub">Design Strategist · Rotational Apprentice</div>
+            <div><span class="about-meta-org">Visa</span><span class="about-meta-slash">/</span><span class="about-meta-role">Design Strategist</span></div>
+            <div class="about-meta-sub">Strategy, Research, Proposition Design</div>
+            <div class="about-meta-sub" style="margin-top:4px;opacity:.5;">Previously: Rotational Apprentice (HR, Client Marketing, Innovation)</div>
           </div>
           <div class="about-meta-item">
             <div class="about-meta-yr">2021 – 2025</div>
@@ -476,6 +477,9 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
               <span class="about-meta-chip">Target Jobs Apprentice of the Year 2024</span>
             </div>
           </div>
+        </div>
+        <div style="padding:32px 0 0;">
+          <a href="cv.pdf" target="_blank" class="about-cv-btn">Read my CV</a>
         </div>
       </div>
       <div class="about-step" data-step="1">
@@ -493,9 +497,6 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
       <div class="about-step" data-step="2" id="aboutStep2">
         <h2>I'm a creative at heart — problem solving and ideating are my bread and butter</h2>
         <p>Photography sharpens the eye for detail that feeds directly back into research. I'm also learning jewellery making and goldsmith work at <a href="https://www.nicolabannister.com" target="_blank" style="color:var(--accent)">Nicola Bannister Jewellery</a>.</p>
-      </div>
-      <div class="about-cv-sticky">
-        <a href="cv.pdf" target="_blank" class="about-cv-btn">Read my CV</a>
       </div>
     </div>
     <div class="about-right" id="aboutRight">

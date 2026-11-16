@@ -334,7 +334,7 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
 .about-panel{position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-start;padding:0 248px 0 0;opacity:0;transition:opacity .5s ease;pointer-events:none;}
 .about-panel.active{opacity:1;pointer-events:auto;}
 .photo-stack{position:relative;width:calc(clamp(221px,27.2vw,357px) + 3.8rem);height:calc(clamp(221px,27.2vw,357px) + 3.8rem);}
-.ps-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;box-shadow:0 8px 32px rgba(0,0,0,.25);}.ps-front{transition:opacity .8s ease;}
+.ps-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;box-shadow:0 8px 32px rgba(0,0,0,.25);}.ps-front{transition:transform .8s cubic-bezier(.4,0,.2,1),opacity .8s ease;}
 .ps-back{transform:rotate(-5deg) translate(-6px,8px);}
 .ps-front{transform:rotate(2deg);}
 .flicker-wrap{position:relative;width:calc(clamp(221px,27.2vw,357px) + 3.8rem);height:calc(clamp(221px,27.2vw,357px) + 3.8rem);}
@@ -688,7 +688,13 @@ if (track) {
       var rect = step2.getBoundingClientRect();
       var range = step2.offsetHeight - window.innerHeight;
       var progress = range > 0 ? -rect.top / range : 0;
-      psFront.style.opacity = (progress > 0.45) ? '0' : '1';
+      if (progress > 0.45) {
+        psFront.style.transform = 'rotate(-3deg) translate(-8px,6px)';
+        psFront.style.opacity = '0';
+      } else {
+        psFront.style.transform = 'rotate(2deg)';
+        psFront.style.opacity = '1';
+      }
     }
   }
 

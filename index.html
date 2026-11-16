@@ -495,7 +495,7 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
           </div>
         </div>
       </div>
-      <div class="about-step" data-step="2" id="aboutStep2">
+      <div class="about-step" data-step="2" id="aboutStep2" style="min-height:200vh;justify-content:flex-start;padding-top:80px;">
         <h2>I'm a creative at heart — problem solving and ideating are my bread and butter</h2>
         <p>Outside of work I shoot film and I'm learning goldsmith and jewellery-making at <a href="https://www.nicolabannister.com" target="_blank" style="color:var(--accent)">Nicola Bannister Jewellery</a>. Both come down to the same thing — wanting to understand how something is actually made, not just what it ends up looking like.</p>
       </div>
@@ -672,21 +672,13 @@ if (track) {
   steps.forEach(function(s){ obs.observe(s); });
   var panel2 = document.getElementById('aboutPanel2');
   var psFront = panel2 ? panel2.querySelector('.ps-front') : null;
-  var swapped = false;
   var step2 = document.getElementById('aboutStep2');
   if (step2 && psFront) {
-    new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if (e.isIntersecting && !swapped) {
-          swapped = true;
-          setTimeout(function(){ psFront.style.opacity = '0'; }, 600);
-        }
-        if (!e.isIntersecting && e.boundingClientRect.top > 0) {
-          swapped = false;
-          psFront.style.opacity = '1';
-        }
-      });
-    }, { threshold: 0.7 }).observe(step2);
+    window.addEventListener('scroll', function(){
+      var rect = step2.getBoundingClientRect();
+      var progress = -rect.top / (step2.offsetHeight - window.innerHeight);
+      psFront.style.opacity = (progress > 0.45) ? '0' : '1';
+    }, { passive: true });
   }
 })();
 </script>

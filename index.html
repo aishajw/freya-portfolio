@@ -52,7 +52,7 @@ h1,h2,h3{text-wrap:balance;}
 .nav__links{list-style:none;display:flex;gap:0;margin:0 10px;}
 .nav__links a{font-family:var(--sans);font-size:17px;font-weight:400;color:var(--ink);padding:8px 17px;border-radius:999px;text-decoration:none;letter-spacing:0;text-transform:none;transition:background .15s;}
 .nav__links a:hover{background:rgba(0,0,0,.05);}
-.nav__cta{background:var(--ink);color:#fff;font-family:var(--sans);font-size:17px;font-weight:400;padding:10px 24px;border-radius:999px;text-decoration:none;transition:opacity .15s;}
+.nav__cta{background:var(--teal);color:#fff;font-family:var(--label);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:13px 28px;border-radius:0;text-decoration:none;transition:background .18s;}.nav__cta:hover{background:#2fa09a;}
 .nav__cta:hover{opacity:.75;}
 .nav__avail-text{font-family:var(--sans);font-size:17px;font-weight:400;color:var(--ink);padding:0 10px;}
 .nav__dot{width:10px;height:10px;border-radius:50%;background:#22c55e;flex-shrink:0;margin-right:4px;}
@@ -182,7 +182,7 @@ h1,h2,h3{text-wrap:balance;}
 .about-title{font-family:var(--serif);font-size:clamp(32px,5vw,52px);font-weight:300;line-height:1.1;color:var(--ink);margin-bottom:28px;}
 .about-title em{font-style:italic;color:var(--accent);}
 .about-body p{font-size:14px;color:var(--mid);line-height:1.8;margin-bottom:14px;font-weight:300;}
-.btn{display:inline-block;margin-top:12px;padding:11px 22px;border:1px solid var(--ink);color:var(--ink);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;transition:background .18s,color .18s;}
+.btn{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:14px 32px;background:var(--teal);border:none;color:#fff;font-family:var(--label);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:background .18s;}.btn:hover{background:#2fa09a;}
 .btn:hover{background:var(--ink);color:var(--bg);}
 .photo-col{display:flex;flex-direction:column;gap:16px;}
 .photo-box{aspect-ratio:3/4;background:var(--bg);border:1px solid color-mix(in srgb,var(--ink) 10%,transparent);display:flex;align-items:center;justify-content:center;font-size:11px;letter-spacing:.05em;color:var(--soft);max-width:100%;}
@@ -317,7 +317,7 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
 .about-step{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:80px 0;max-width:568px;}
 .about-step h2{font-family:'Raleway',var(--sans);font-size:clamp(28px,3.5vw,46px);font-weight:300;line-height:1.2;color:var(--ink);margin-bottom:24px;}
 .about-step p{font-family:'Raleway',var(--sans);font-size:clamp(16px,1.6vw,20px);color:var(--mid);line-height:1.85;margin-bottom:16px;font-weight:300;}
-.about-cv-btn{display:inline-block;margin-top:28px;padding:10px 24px;border:1px solid var(--ink);font-family:var(--sans);font-size:12px;letter-spacing:.04em;color:var(--ink);text-decoration:none;transition:background .18s,color .18s;}
+.about-cv-btn{display:inline-flex;align-items:center;gap:10px;padding:15px 32px;background:var(--teal);color:#fff;font-family:var(--label);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:background .18s;}.about-cv-btn:hover{background:#2fa09a;}.about-cv-btn::after{content:"↗";font-size:13px;opacity:.85;}
 .about-cv-btn:hover{background:var(--ink);color:#fff;}
 /* About metadata */
 .about-meta{margin-top:32px;border-top:1px solid rgba(26,26,24,.12);display:grid;grid-template-columns:1fr 1fr;gap:0 32px;}
@@ -330,7 +330,7 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
 .about-meta-sub{font-family:'Raleway',var(--sans);font-size:11px;letter-spacing:.04em;color:var(--mid);opacity:.7;margin-top:3px;}
 .about-meta-chips{display:flex;flex-wrap:wrap;gap:6px;padding:16px 0 0;}
 .about-meta-chip{font-family:'Raleway',var(--sans);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--mid);padding:6px 12px;border:1px solid rgba(26,26,24,.2);}
-.about-cv-sticky{position:sticky;bottom:32px;padding:0;max-width:568px;}
+.about-cv-sticky{padding:40px 0 0;max-width:568px;}
 .about-right{flex:0 0 auto;margin-left:auto;position:sticky;top:0;height:100vh;display:flex;align-items:center;width:calc(clamp(260px,32vw,420px) + 4.5rem + 248px);}
 .about-panel{position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-start;padding:0 248px 0 0;opacity:0;transition:opacity .5s ease;pointer-events:none;}
 .about-panel.active{opacity:1;pointer-events:auto;}
@@ -397,7 +397,7 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
     <ul class="nav__links">
       <li><a href="#work">Work</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="/cv.pdf" target="_blank">CV</a></li>
+      <li><a href="cv.pdf" target="_blank">CV</a></li>
     </ul>
     <a href="#contact" class="nav__cta">Contact</a>
   </div>
@@ -495,7 +495,7 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
         <p>Photography sharpens the eye for detail that feeds directly back into research. I'm also learning jewellery making and goldsmith work at <a href="https://www.nicolabannister.com" target="_blank" style="color:var(--accent)">Nicola Bannister Jewellery</a>.</p>
       </div>
       <div class="about-cv-sticky">
-        <a href="/cv.pdf" target="_blank" class="about-cv-btn">Read CV</a>
+        <a href="cv.pdf" target="_blank" class="about-cv-btn">Read my CV</a>
       </div>
     </div>
     <div class="about-right" id="aboutRight">
@@ -528,7 +528,7 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
       <span>Currently open for<br>new collaborations and offers</span>
     </div>
     <nav class="footer__links">
-      <a href="/cv.pdf" target="_blank">CV</a>
+      <a href="cv.pdf" target="_blank">CV</a>
       <a href="https://linkedin.com/in/freyayoung" target="_blank">LinkedIn</a>
       <a href="mailto:freya@example.com">Email</a>
     </nav>

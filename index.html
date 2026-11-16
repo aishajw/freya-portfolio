@@ -495,11 +495,9 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
           </div>
         </div>
       </div>
-      <div class="about-step" data-step="2" id="aboutStep2" style="min-height:200vh;justify-content:flex-start;padding-top:0;">
-        <div style="position:sticky;top:30vh;padding-top:80px;">
-          <h2>I'm a creative at heart — problem solving and ideating are my bread and butter</h2>
-          <p>Outside of work I shoot film and I'm learning goldsmith and jewellery-making at <a href="https://www.nicolabannister.com" target="_blank" style="color:var(--accent)">Nicola Bannister Jewellery</a>. Both come down to the same thing — wanting to understand how something is actually made, not just what it ends up looking like.</p>
-        </div>
+      <div class="about-step" data-step="2" id="aboutStep2" style="min-height:200vh;justify-content:flex-start;padding-top:80px;">
+        <h2>I'm a creative at heart — problem solving and ideating are my bread and butter</h2>
+        <p>Outside of work I shoot film and I'm learning goldsmith and jewellery-making at <a href="https://www.nicolabannister.com" target="_blank" style="color:var(--accent)">Nicola Bannister Jewellery</a>. Both come down to the same thing — wanting to understand how something is actually made, not just what it ends up looking like.</p>
       </div>
     </div>
     <div class="about-right" id="aboutRight">
@@ -664,24 +662,38 @@ if (track) {
   var steps  = document.querySelectorAll('.about-step');
   var panels = document.querySelectorAll('.about-panel');
   if (!steps.length) return;
-  function activate(i) {
-    panels.forEach(function(p){ p.classList.remove('active'); });
-    if (panels[i]) panels[i].classList.add('active');
-  }
-  var obs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){ if (e.isIntersecting) activate(+e.target.dataset.step); });
-  }, { threshold: 0.5 });
-  steps.forEach(function(s){ obs.observe(s); });
-  var panel2 = document.getElementById('aboutPanel2');
+  var panel2  = document.getElementById('aboutPanel2');
   var psFront = panel2 ? panel2.querySelector('.ps-front') : null;
-  var step2 = document.getElementById('aboutStep2');
-  if (step2 && psFront) {
-    window.addEventListener('scroll', function(){
+  var step2   = document.getElementById('aboutStep2');
+  var curActive = -1;
+
+  function stepTop(el) { return el.getBoundingClientRect().top + window.scrollY; }
+
+  function update() {
+    var mid = window.scrollY + window.innerHeight * 0.5;
+    var best = 0;
+    for (var i = 0; i < steps.length; i++) {
+      var t = stepTop(steps[i]);
+      var b = t + steps[i].offsetHeight;
+      if (mid >= t && mid < b) { best = i; break; }
+      if (t > mid) break;
+      best = i;
+    }
+    if (best !== curActive) {
+      curActive = best;
+      panels.forEach(function(p){ p.classList.remove('active'); });
+      if (panels[best]) panels[best].classList.add('active');
+    }
+    if (psFront && step2) {
       var rect = step2.getBoundingClientRect();
-      var progress = -rect.top / (step2.offsetHeight - window.innerHeight);
+      var range = step2.offsetHeight - window.innerHeight;
+      var progress = range > 0 ? -rect.top / range : 0;
       psFront.style.opacity = (progress > 0.45) ? '0' : '1';
-    }, { passive: true });
+    }
   }
+
+  window.addEventListener('scroll', update, { passive: true });
+  update();
 })();
 </script>
 

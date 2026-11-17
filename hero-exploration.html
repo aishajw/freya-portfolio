@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hero Exploration</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html,body{width:100%;height:100%;overflow:hidden;background:#111;}
+
+/* ── Full-screen portrait background ── */
+.bg{
+  position:fixed;
+  inset:0;
+  z-index:0;
+}
+.bg img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center top;
+  display:block;
+}
+/* gradient — fades out the bottom so carousel sits cleanly over it */
+.bg::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to bottom,
+    transparent 30%,
+    rgba(0,0,0,.18) 70%,
+    rgba(0,0,0,.55) 100%
+  );
+}
+
+/* ── Carousel ── */
+:root{
+  --card-w: 240px;
+  --card-h: 320px;
+  --gap: 20px;
+  --speed: 22s;
+}
+@media(max-width:768px){
+  :root{
+    --card-w: 160px;
+    --card-h: 210px;
+    --gap: 14px;
+  }
+}
+
+.carousel-wrap{
+  position:fixed;
+  bottom:48px;
+  left:0;
+  right:0;
+  z-index:1;
+  overflow:hidden;
+}
+@media(max-width:768px){
+  .carousel-wrap{bottom:32px;}
+}
+
+.carousel-track{
+  display:flex;
+  gap:var(--gap);
+  width:max-content;
+  animation:slide var(--speed) linear infinite;
+}
+.carousel-track:hover{
+  animation-play-state:paused;
+}
+
+@keyframes slide{
+  0%  {transform:translateX(0);}
+  100%{transform:translateX(calc(-5 * (var(--card-w) + var(--gap))));}
+}
+
+.card{
+  width:var(--card-w);
+  height:var(--card-h);
+  flex-shrink:0;
+  overflow:hidden;
+  box-shadow:0 8px 40px rgba(0,0,0,.35);
+}
+.card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+}
+</style>
+</head>
+<body>
+
+<!-- Background portrait -->
+<div class="bg">
+  <img src="images/hero-thumb-bg.jpg" alt="">
+</div>
+
+<!-- Bottom carousel — 5 cards + duplicate set for seamless loop -->
+<div class="carousel-wrap">
+  <div class="carousel-track">
+    <div class="card"><img src="images/hero-slide-1.jpg" alt=""></div>
+    <div class="card"><img src="images/hero-slide-2.jpg" alt=""></div>
+    <div class="card"><img src="images/hero-slide-3.jpg" alt=""></div>
+    <div class="card"><img src="images/hero-slide-4.jpg" alt=""></div>
+    <div class="card"><img src="images/hero-slide-5.jpg" alt=""></div>
+    <div class="card"><img src="images/hero-slide-1.jpg" alt=""></div>
+    <div class="card"><img src="images/hero-slide-2.jpg" alt=""></div>
+    <div class="card"><img src="images/hero-slide-3.jpg" alt=""></div>
+    <div class="card"><img src="images/hero-slide-4.jpg" alt=""></div>
+    <div class="card"><img src="images/hero-slide-5.jpg" alt=""></div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -39,7 +39,7 @@ body{background:#111;}
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;padding-left:max(0px,env(safe-area-inset-left,0px));padding-right:max(0px,env(safe-area-inset-right,0px));padding-block:0;}
+html{background:var(--teal);}body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;padding-left:max(0px,env(safe-area-inset-left,0px));padding-right:max(0px,env(safe-area-inset-right,0px));padding-block:0;}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:51;background:transparent;}
 a{color:inherit;text-decoration:none;}
 h1,h2,h3{text-wrap:balance;}
@@ -336,8 +336,8 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
 .about-panel.active{opacity:1;pointer-events:auto;}
 .photo-stack{position:relative;width:calc(clamp(221px,27.2vw,357px) + 3.8rem);height:calc(clamp(221px,27.2vw,357px) + 3.8rem);}
 .ps-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;box-shadow:0 8px 32px rgba(0,0,0,.25);}
-.ps-back{transform:rotate(-5deg) translate(-6px,8px);}
-.ps-front{transform:rotate(2deg);}
+.ps-back{}
+.ps-front{}
 .flicker-wrap{position:relative;width:calc(clamp(221px,27.2vw,357px) + 3.8rem);height:calc(clamp(221px,27.2vw,357px) + 3.8rem);}
 .flicker-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;box-shadow:0 8px 32px rgba(0,0,0,.25);opacity:0;transform:rotate(2deg);}
 .flicker-img.fi-active{opacity:1;}
@@ -364,6 +364,7 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
   .work-grid{grid-template-columns:1fr;}
   .work-card{aspect-ratio:4/3;}
   .work-footer{padding:14px 24px 48px;}
+  .work{padding-bottom:40px;}
 
   /* Sounds like */
   .sounds-like{padding:56px 0 48px;}
@@ -393,7 +394,7 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
   .footer{padding:40px 24px 0;}
   .footer__top{flex-direction:column;gap:20px;margin-bottom:32px;}
   .footer__links{flex-wrap:wrap;gap:16px;}
-  .footer__name{font-size:clamp(52px,17vw,120px);}
+  .footer__name{font-size:clamp(52px,17vw,120px);white-space:normal;text-align:center;}
   .footer__msg{font-size:clamp(15px,4vw,20px);}
 }
 </style>

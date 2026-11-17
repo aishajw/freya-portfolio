@@ -345,6 +345,7 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
 .about-right{flex:0 0 auto;margin-left:auto;position:sticky;top:0;height:100vh;display:flex;align-items:center;width:calc(clamp(221px,27.2vw,357px) + 3.8rem + 248px);}
 .about-panel{position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-start;padding:0 248px 0 0;opacity:0;transition:opacity .5s ease;pointer-events:none;}
 .about-panel.active{opacity:1;pointer-events:auto;}
+.about-progress{display:none;}
 .photo-stack{position:relative;width:calc(clamp(221px,27.2vw,357px) + 3.8rem);height:calc(clamp(221px,27.2vw,357px) + 3.8rem);}
 .ps-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
 .ps-back{}
@@ -382,11 +383,14 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
   .sounds-like__heading{font-size:clamp(22px,6vw,36px);}
 
   /* About — sticky image top, text scrolls below */
-  .about-header{padding:12px 24px 10px;position:sticky;top:0;z-index:10;background:#fff;}
+  .about-header{padding:36px 24px 10px;position:sticky;top:0;z-index:10;background:#fff;}
   .about-header .work-heading{visibility:hidden;}
   .about-inner{flex-direction:column;}
-  .about-right{display:flex;position:sticky;top:40px;width:100%;height:68vw;margin-left:0;min-height:0;order:-1;z-index:5;background:#fff;}
+  .about-right{display:flex;position:sticky;top:72px;width:100%;height:68vw;margin-left:0;min-height:0;order:-1;z-index:5;background:#fff;}
   .about-panel{padding:0;inset:16px 20px;border-radius:2px;}
+  .about-progress{display:flex;position:absolute;bottom:14px;left:20px;right:20px;height:2px;gap:3px;z-index:2;}
+  .about-progress-seg{flex:1;height:2px;background:rgba(255,255,255,.3);transition:background .4s ease;border-radius:1px;}
+  .about-progress-seg.active{background:#fff;}
   .photo-stack,.flicker-wrap{width:100%;height:100%;}
   .about-left{padding:0 24px;}
   .about-step{min-height:auto;padding:40px 0 32px;}
@@ -555,6 +559,7 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
         </div>
       </div>
     </div>
+    <div class="about-progress" id="aboutProgress"></div>
   </div>
   <div class="about-cta-inline">
     <a href="cv.pdf" target="_blank" class="about-cta-btn">Read my CV</a>
@@ -716,6 +721,9 @@ if (track) {
   var panels = document.querySelectorAll('.about-panel');
   if (!steps.length) return;
   var curActive = -1;
+  // Build about progress segments
+  var aboutProg = document.getElementById('aboutProgress');
+  if (aboutProg) { for(var pi=0;pi<steps.length;pi++){var ps=document.createElement('div');ps.className='about-progress-seg';aboutProg.appendChild(ps);} }
 
   function stepTop(el) { return el.getBoundingClientRect().top + window.scrollY; }
 
@@ -733,6 +741,8 @@ if (track) {
       curActive = best;
       panels.forEach(function(p){ p.classList.remove('active'); });
       if (panels[best]) panels[best].classList.add('active');
+      var progSegs = document.querySelectorAll('#aboutProgress .about-progress-seg');
+      progSegs.forEach(function(s,i){ s.classList.toggle('active', i <= best); });
     }
 
   }

@@ -36,15 +36,15 @@ html,body{width:100%;height:100%;overflow:hidden;background:#111;}
 
 /* ── Carousel ── */
 :root{
-  --card-w: 240px;
+  --card-w: calc(20vw - 16px); /* ~5 cards visible */
   --card-h: 320px;
   --gap: 20px;
   --speed: 22s;
 }
 @media(max-width:768px){
   :root{
-    --card-w: 160px;
-    --card-h: 210px;
+    --card-w: calc(38vw - 10px); /* ~2.5 cards visible */
+    --card-h: 220px;
     --gap: 14px;
   }
 }

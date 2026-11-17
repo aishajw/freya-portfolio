@@ -495,9 +495,6 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
             </div>
           </div>
         </div>
-        <div style="padding:32px 0 0;">
-          <a href="cv.pdf" target="_blank" class="about-cv-btn">Read my CV</a>
-        </div>
       </div>
       <div class="about-step" data-step="1">
         <h2>Making what matters to me matter to the business</h2>
@@ -515,16 +512,10 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
             </div>
           </div>
         </div>
-        <div style="padding:32px 0 0;">
-          <a href="#work" class="about-cv-btn">Read the case study</a>
-        </div>
       </div>
       <div class="about-step" data-step="2" id="aboutStep2" >
         <h2>I'm a creative at heart — problem solving and ideating are my hammer and anvil</h2>
         <p>Outside of work I shoot film and I'm learning goldsmithing and jewellery-making at <a href="https://www.nicolabannister.com" target="_blank" style="color:var(--accent)">Nicola Bannister Jewellery</a>. Both come down to the same thing: wanting to understand how something is actually made, not just what it ends up looking like.</p>
-        <div style="padding:32px 0 0;">
-          <a href="cv.pdf" target="_blank" class="about-cv-btn">Read my CV</a>
-        </div>
       </div>
     </div>
     <div class="about-right" id="aboutRight">
@@ -728,9 +719,11 @@ if (track) {
   if (!bar || !about) return;
   function updateBar(){
     var rect = about.getBoundingClientRect();
-    bar.classList.toggle('visible', rect.top < window.innerHeight * 0.9 && rect.bottom > 80);
+    var show = rect.top < window.innerHeight * 0.95 && rect.bottom > 60;
+    bar.classList.toggle('visible', show);
   }
   window.addEventListener('scroll', updateBar, {passive:true});
+  window.addEventListener('resize', updateBar, {passive:true});
   updateBar();
 })();
 </script>

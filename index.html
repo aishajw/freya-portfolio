@@ -39,7 +39,7 @@ body{background:#111;}
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-html{background:var(--teal);}body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;padding-left:max(0px,env(safe-area-inset-left,0px));padding-right:max(0px,env(safe-area-inset-right,0px));padding-block:0;}
+html{background:#fff;}body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;padding-left:max(0px,env(safe-area-inset-left,0px));padding-right:max(0px,env(safe-area-inset-right,0px));padding-block:0;}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:51;background:transparent;}
 a{color:inherit;text-decoration:none;}
 h1,h2,h3{text-wrap:balance;}
@@ -161,18 +161,20 @@ h1,h2,h3{text-wrap:balance;}
 .pursuit--photo .pursuit__rule{background:rgba(255,255,255,.18);}
 .pursuit--jewel .pursuit__rule{background:color-mix(in srgb,var(--ink) 18%,transparent);}
 
-.footer{background:var(--teal);color:var(--bg);padding:48px 48px 40px;}
-.footer__top{display:flex;flex-direction:row;justify-content:center;align-items:center;gap:40px;margin-bottom:48px;}
-.footer__avail{display:flex;align-items:center;gap:10px;font-family:var(--sans);font-size:14px;color:#fff;line-height:1.4;}
+.footer{background:var(--teal);color:var(--bg);padding:64px 48px 56px;}
+.footer__avail{display:flex;align-items:center;gap:10px;font-family:var(--sans);font-size:14px;color:rgba(255,255,255,.75);line-height:1.4;margin-bottom:32px;}
 .footer__avail-dot{width:8px;height:8px;border-radius:50%;background:#fff;flex-shrink:0;margin-top:2px;align-self:flex-start;}
-.footer__links{display:flex;gap:32px;justify-content:center;}
+.footer__links{display:flex;gap:32px;justify-content:flex-start;margin-top:40px;}
 .footer__links a{font-family:var(--sans);font-size:14px;color:rgba(255,255,255,.65);text-decoration:none;display:flex;align-items:center;gap:4px;transition:color .15s;}
 .footer__links a:hover{color:#fff;}
 .footer__links a::after{content:"↗";font-size:11px;opacity:.6;}
 .footer__msg{text-align:center;font-family:var(--sans);font-size:clamp(18px,2.2vw,26px);color:rgba(255,255,255,.75);line-height:1.6;margin-bottom:56px;}
 .footer__msg a{color:#fff;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.4);}
 .footer__msg a:hover{text-decoration-color:#fff;}
-.footer__name{display:block;font-family:'Raleway',var(--sans);font-size:clamp(68px,11vw,170px);font-weight:900;line-height:0.9;letter-spacing:-0.03em;color:var(--bg);white-space:nowrap;text-align:center;}
+.footer__name{display:block;font-family:'Raleway',var(--sans);font-size:clamp(68px,11vw,170px);font-weight:900;line-height:0.9;letter-spacing:-0.03em;color:var(--teal);white-space:nowrap;text-align:center;}
+.footer__connect{font-family:'Raleway',var(--sans);font-size:clamp(32px,4vw,56px);font-weight:700;color:#fff;margin:0 0 32px;line-height:1.1;}
+.footer-name-section{background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:56px 48px 48px;}
+.footer-chevron{color:var(--teal);margin-top:28px;flex-shrink:0;}
 .footer-inner{display:none;}
 
 
@@ -203,9 +205,8 @@ h1,h2,h3{text-wrap:balance;}
 .contact-links a:hover{color:var(--ink);}
 
 footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
-.footer{background:var(--teal);color:var(--bg);padding:48px 48px 40px;}
-.footer__top{display:flex;flex-direction:row;justify-content:center;align-items:center;gap:40px;margin-bottom:48px;}
-.footer__avail{display:flex;align-items:center;gap:10px;font-family:var(--sans);font-size:14px;color:#fff;line-height:1.4;}
+.footer{background:var(--teal);color:var(--bg);padding:64px 48px 56px;}
+.footer__avail{display:flex;align-items:center;gap:10px;font-family:var(--sans);font-size:14px;color:rgba(255,255,255,.75);line-height:1.4;margin-bottom:32px;}
 .footer__avail-dot{width:8px;height:8px;border-radius:50%;background:#fff;flex-shrink:0;margin-top:2px;align-self:flex-start;}
 .footer__links{display:flex;gap:32px;justify-content:center;}
 .footer__links a{font-family:var(--sans);font-size:14px;color:rgba(255,255,255,.65);text-decoration:none;display:flex;align-items:center;gap:4px;transition:color .15s;}
@@ -214,7 +215,10 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
 .footer__msg{text-align:center;font-family:var(--sans);font-size:clamp(18px,2.2vw,26px);color:rgba(255,255,255,.75);line-height:1.6;margin-bottom:56px;}
 .footer__msg a{color:#fff;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.4);}
 .footer__msg a:hover{text-decoration-color:#fff;}
-.footer__name{display:block;font-family:'Raleway',var(--sans);font-size:clamp(68px,11vw,170px);font-weight:900;line-height:0.9;letter-spacing:-0.03em;color:var(--bg);white-space:nowrap;text-align:center;}
+.footer__name{display:block;font-family:'Raleway',var(--sans);font-size:clamp(68px,11vw,170px);font-weight:900;line-height:0.9;letter-spacing:-0.03em;color:var(--teal);white-space:nowrap;text-align:center;}
+.footer__connect{font-family:'Raleway',var(--sans);font-size:clamp(32px,4vw,56px);font-weight:700;color:#fff;margin:0 0 32px;line-height:1.1;}
+.footer-name-section{background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:56px 48px 48px;}
+.footer-chevron{color:var(--teal);margin-top:28px;flex-shrink:0;}
 .footer-inner{display:none;}
 
 
@@ -400,10 +404,11 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
   .hero__chip--offline{white-space:normal;font-size:11px;padding:7px 12px;bottom:16px;right:16px;max-width:calc(100% - 32px);}
 
   /* Footer */
-  .footer{padding:0 24px 0;}
-  .footer__contact{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:64px 0 48px;}
-  .footer__top{margin-bottom:28px;}
-  .footer__msg{font-size:clamp(20px,5vw,28px);margin-bottom:0;}
+  .footer{padding:52px 24px 48px;}
+  .footer__connect{font-size:clamp(28px,8vw,44px);margin-bottom:24px;}
+  .footer__msg{font-size:clamp(16px,4.5vw,22px);margin-bottom:0;}
+  .footer__links{margin-top:28px;}
+  .footer-name-section{padding:40px 24px 36px;}
   .footer__top{flex-direction:column;gap:20px;margin-bottom:32px;}
   .footer__links{flex-wrap:wrap;gap:16px;}
   .footer__name{font-size:13vw;white-space:nowrap;text-align:center;overflow:hidden;}
@@ -548,24 +553,26 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
 
 
 <footer class="footer" id="contact">
-  <div class="footer__contact">
-    <div class="footer__top">
-      <div class="footer__avail">
-        <span class="footer__avail-dot"></span>
-        <span>Currently open for new collaborations and offers</span>
-      </div>
-      <nav class="footer__links">
-        <a href="cv.pdf" target="_blank">CV</a>
-        <a href="https://linkedin.com/in/freyayoung02" target="_blank">LinkedIn</a>
-        <a href="mailto:freyayoung101@gmail.com">Email</a>
-      </nav>
-    </div>
-    <div class="footer__msg">
-      Feel free to drop a message on <a href="https://linkedin.com/in/freyayoung02" target="_blank">LinkedIn</a>,<br>or send me an <a href="mailto:freyayoung101@gmail.com">email</a> — I&rsquo;d love to connect.
-    </div>
+  <h2 class="footer__connect">Let’s connect!</h2>
+  <div class="footer__avail">
+    <span class="footer__avail-dot"></span>
+    <span>Currently open for new collaborations and offers</span>
   </div>
-  <span class="footer__name">Freya Young</span>
+  <div class="footer__msg">
+    Feel free to drop a message on <a href="https://linkedin.com/in/freyayoung02" target="_blank">LinkedIn</a>,<br>or send me an <a href="mailto:freyayoung101@gmail.com">email</a> — I’d love to connect.
+  </div>
+  <nav class="footer__links">
+    <a href="cv.pdf" target="_blank">CV</a>
+    <a href="https://linkedin.com/in/freyayoung02" target="_blank">LinkedIn</a>
+    <a href="mailto:freyayoung101@gmail.com">Email</a>
+  </nav>
 </footer>
+<div class="footer-name-section">
+  <span class="footer__name">Freya Young</span>
+  <svg class="footer-chevron" width="48" height="24" viewBox="0 0 48 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M2 2L24 22L46 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</div>
 </div><!-- /page-wrap -->
 <div id="reveal-layer" aria-hidden="true">
   <div class="reveal-cell" id="rc-left"></div>

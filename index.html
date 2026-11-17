@@ -334,7 +334,7 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
 .about-panel{position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-start;padding:0 248px 0 0;opacity:0;transition:opacity .5s ease;pointer-events:none;}
 .about-panel.active{opacity:1;pointer-events:auto;}
 .photo-stack{position:relative;width:calc(clamp(221px,27.2vw,357px) + 3.8rem);height:calc(clamp(221px,27.2vw,357px) + 3.8rem);}
-.ps-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;box-shadow:0 8px 32px rgba(0,0,0,.25);}.ps-front{transition:transform .8s cubic-bezier(.4,0,.2,1),opacity .8s ease;}
+.ps-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;box-shadow:0 8px 32px rgba(0,0,0,.25);}
 .ps-back{transform:rotate(-5deg) translate(-6px,8px);}
 .ps-front{transform:rotate(2deg);}
 .flicker-wrap{position:relative;width:calc(clamp(221px,27.2vw,357px) + 3.8rem);height:calc(clamp(221px,27.2vw,357px) + 3.8rem);}
@@ -499,7 +499,7 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
           <a href="#work" class="about-cv-btn">Read the case study</a>
         </div>
       </div>
-      <div class="about-step" data-step="2" id="aboutStep2" style="min-height:200vh;justify-content:flex-start;padding-top:80px;">
+      <div class="about-step" data-step="2" id="aboutStep2" >
         <h2>I'm a creative at heart — problem solving and ideating are my bread and butter</h2>
         <p>Outside of work I shoot film and I'm learning goldsmithing and jewellery-making at <a href="https://www.nicolabannister.com" target="_blank" style="color:var(--accent)">Nicola Bannister Jewellery</a>. Both come down to the same thing: wanting to understand how something is actually made, not just what it ends up looking like.</p>
       </div>
@@ -518,8 +518,7 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
       </div>
       <div class="about-panel" data-panel="2" id="aboutPanel2">
         <div class="photo-stack">
-          <img class="ps-img ps-back" src="images/hero-slide-2.jpg" alt="" style="transform:rotate(-3deg) translate(-8px,6px);object-position:center 30%;">
-          <img class="ps-img ps-front" src="images/about-panel-2.jpg" alt="" style="transform:rotate(2deg);object-position:center 30%;">
+          <img class="ps-img ps-front" src="images/about-panel-2.jpg" alt="" style="object-position:center 30%;">
         </div>
       </div>
     </div>
@@ -666,9 +665,6 @@ if (track) {
   var steps  = document.querySelectorAll('.about-step');
   var panels = document.querySelectorAll('.about-panel');
   if (!steps.length) return;
-  var panel2  = document.getElementById('aboutPanel2');
-  var psFront = panel2 ? panel2.querySelector('.ps-front') : null;
-  var step2   = document.getElementById('aboutStep2');
   var curActive = -1;
 
   function stepTop(el) { return el.getBoundingClientRect().top + window.scrollY; }
@@ -688,18 +684,7 @@ if (track) {
       panels.forEach(function(p){ p.classList.remove('active'); });
       if (panels[best]) panels[best].classList.add('active');
     }
-    if (psFront && step2) {
-      var rect = step2.getBoundingClientRect();
-      var range = step2.offsetHeight - window.innerHeight;
-      var progress = range > 0 ? -rect.top / range : 0;
-      if (progress > 0.45) {
-        psFront.style.transform = 'rotate(-3deg) translate(-8px,6px)';
-        psFront.style.opacity = '0';
-      } else {
-        psFront.style.transform = 'rotate(2deg)';
-        psFront.style.opacity = '1';
-      }
-    }
+
   }
 
   window.addEventListener('scroll', update, { passive: true });

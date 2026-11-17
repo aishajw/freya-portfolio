@@ -316,6 +316,7 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
 .about-step{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:80px 0;max-width:568px;}
 .about-step h2{font-family:'Raleway',var(--sans);font-size:clamp(22px,2.6vw,36px);font-weight:400;line-height:1.2;color:var(--ink);margin-bottom:24px;}
 .about-step p{font-family:'Raleway',var(--sans);font-size:clamp(14px,1.4vw,18px);color:var(--mid);line-height:1.5;margin-bottom:12px;font-weight:400;}
+.about-cta-bar{display:none;}
 .about-cv-btn{display:inline-flex;align-items:center;gap:10px;padding:15px 32px;background:var(--teal);color:#fff;font-family:var(--label);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:background .18s;}.about-cv-btn:hover{background:#2fa09a;}.about-cv-btn::after{content:"↗";font-size:13px;opacity:.85;}
 .about-cv-btn:hover{background:var(--ink);color:#fff;}
 /* About metadata */
@@ -377,6 +378,10 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
   .about-step{min-height:auto;padding:40px 0 32px;}
   .about-step p{font-size:16px;}
   .about-meta-org,.about-meta-role{font-size:13px;}
+  .about-cta-bar{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:200;opacity:0;pointer-events:none;transition:opacity .25s ease;padding-bottom:env(safe-area-inset-bottom,0px);}
+  .about-cta-bar.visible{opacity:1;pointer-events:auto;}
+  .about-cta-btn{flex:1;display:flex;align-items:center;justify-content:center;padding:18px 12px;font-family:var(--label);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;background:var(--teal);color:#fff;}
+  .about-cta-btn--secondary{background:var(--ink);}
 
   /* Body copy */
   .hero__card-desc{font-size:15px;}
@@ -698,6 +703,19 @@ if (track) {
   update();
 })();
 </script>
+<script>
+(function(){
+  var bar = document.getElementById('aboutCtaBar');
+  var about = document.getElementById('about');
+  if (!bar || !about) return;
+  function updateBar(){
+    var rect = about.getBoundingClientRect();
+    bar.classList.toggle('visible', rect.top < window.innerHeight * 0.9 && rect.bottom > 80);
+  }
+  window.addEventListener('scroll', updateBar, {passive:true});
+  updateBar();
+})();
+</script>
 
 <script>
 (function(){
@@ -818,4 +836,8 @@ if (track) {
   },{passive:true});
 })();
 </script>
+<div class="about-cta-bar" id="aboutCtaBar">
+  <a href="cv.pdf" target="_blank" class="about-cta-btn">Read my CV</a>
+  <a href="#work" class="about-cta-btn about-cta-btn--secondary">See my projects</a>
+</div>
 </body></html>

@@ -316,7 +316,8 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
 .about-step+.about-step{border-top:1px solid rgba(0,0,0,.08);}
 .about-step:last-child{padding-bottom:96px;}
 .about-last__left .about-step{}
-.about-step h2{font-family:'Pecita',cursive;font-weight:normal;font-size:clamp(28px,3.2vw,52px);line-height:1.1;color:var(--ink);margin-bottom:24px;}
+.about-step h2{font-family:'Raleway',var(--sans);font-size:clamp(22px,2.6vw,36px);font-weight:400;line-height:1.2;color:var(--ink);margin-bottom:24px;}
+.about-step[data-step="0"] h2{font-family:'Pecita',cursive;font-weight:normal;font-size:clamp(28px,3.2vw,52px);line-height:1.1;}
 .about-step p{font-family:'Poppins',sans-serif;font-size:clamp(14px,1.4vw,18px);color:var(--mid);line-height:1.5;margin-bottom:12px;font-weight:300;}
 .about-cta-bar{display:none;}
 .about-cv-btn{display:inline-flex;align-items:center;gap:10px;padding:15px 32px;background:var(--teal);color:#fff;font-family:var(--label);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:background .18s;}.about-cv-btn:hover{background:#2fa09a;}.about-cv-btn::after{content:"↗";font-size:13px;opacity:.85;}
@@ -411,6 +412,17 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
   .footer__name{font-size:13vw;white-space:nowrap;text-align:center;}
   .footer-name-section{overflow:hidden;}
   .footer__msg{font-size:clamp(15px,4vw,20px);}
+}
+@media(max-width:768px){
+  /* Hero: carousel sits higher, name centred in the space above it */
+  .reel{bottom:22svh;}
+  .mast{bottom:calc(22svh + var(--card-w) + 24px);}
+  /* About: white strip behind the nav so text can't show above the sticky image */
+  .about-right{top:0;height:calc(68vw + 72px);}
+  .about-panel{inset:88px 20px 16px;}
+  /* About buttons: stack full width so they don't run off screen */
+  .about-cta-inline{flex-direction:column;gap:8px;}
+  .about-cta-btn{display:block;text-align:center;}
 }
 </style>
 

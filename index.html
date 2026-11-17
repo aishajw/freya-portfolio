@@ -324,7 +324,7 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
 .about-step{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:80px 0;max-width:568px;}
 .about-step+.about-step{border-top:1px solid rgba(0,0,0,.08);}
 .about-step:last-child{padding-bottom:120px;}
-.about-last{display:flex;flex-direction:row;min-height:100vh;align-items:start;}
+.about-last{display:flex;flex-direction:row;min-height:100vh;align-items:start;border-top:1px solid rgba(0,0,0,.08);}
 .about-last__left{flex:1;padding:2rem 0 0 248px;min-width:0;}
 .about-last__left .about-step{border-top:1px solid rgba(0,0,0,.08);}
 .about-last__right{flex:0 0 auto;margin-left:auto;width:calc(clamp(221px,27.2vw,357px) + 3.8rem + 248px);position:relative;display:flex;align-items:center;padding:80px 248px 80px 3.8rem;}
@@ -393,19 +393,22 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
   .photo-stack,.flicker-wrap{width:100%;height:100%;}
   .about-left{padding:0 24px;}
   .about-step{min-height:auto;padding:40px 0 32px;}
+  .about-left .about-step:first-child{padding-top:16px;}
   .about-step+.about-step{border-top:1px solid rgba(0,0,0,.08);}
   .about-step:last-child{padding-bottom:80px;}
-  .about-last{flex-direction:column;min-height:auto;}
+  .about-last{flex-direction:column;min-height:auto;border-top:1px solid rgba(0,0,0,.08);}
   .about-last__right{width:100%;height:68vw;padding:0;position:relative;overflow:hidden;background:#fff;order:-1;}
   .about-last__img{position:absolute;inset:16px 20px;width:calc(100% - 40px);height:calc(100% - 32px);object-fit:cover;aspect-ratio:unset;}
   .about-last__left{padding:0 24px;}
   .about-last__left .about-step{padding:40px 0 80px;border-top:1px solid rgba(0,0,0,.08);}
+  .about-cta-inline{padding:36px 24px 48px;}
   .about-step p{font-size:16px;}
   .about-meta-org,.about-meta-role{font-size:13px;}
   .about-cta-bar{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:200;background:#fff;border-top:1px solid rgba(0,0,0,.08);padding:14px 24px calc(14px + env(safe-area-inset-bottom,0px));justify-content:center;gap:36px;opacity:0;pointer-events:none;transition:opacity .25s ease;}
   .about-cta-bar.visible{opacity:1;pointer-events:auto;}
   .about-cta-btn{font-family:var(--label);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--ink);border-bottom:1.5px solid var(--ink);padding-bottom:3px;background:none;}
   .about-cta-btn--secondary{color:var(--mid);border-bottom-color:var(--mid);}
+.about-cta-inline{display:flex;gap:36px;justify-content:center;padding:48px 48px 64px;background:#fff;}
 
   /* Body copy */
   .hero__card-desc{font-size:15px;}
@@ -462,7 +465,7 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
     <div class="hero__progress" id="heroProgress"></div>
   </div>
   <div class="hero__right">
-            <span class="hero__chip--offline" id="heroSlideLabel">9–5 — Strategy, research, direction</span>
+            <span class="hero__chip--offline" id="heroSlideLabel" style="display:none">After Hours — Photography, making things</span>
             <div class="hero__slide active" style="background-image:url('images/hero-slide-1.jpg')"></div>
     <div class="hero__slide" style="background-image:url('images/hero-slide-2.jpg')"></div>
     <div class="hero__slide" style="background-image:url('images/hero-slide-3.jpg')"></div>
@@ -564,6 +567,10 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
       <img class="about-last__img" src="images/about-panel-2.jpg" alt="" style="object-position:center 30%">
     </div>
   </div>
+  <div class="about-cta-inline">
+    <a href="cv.pdf" target="_blank" class="about-cta-btn">Read my CV</a>
+    <a href="#work" class="about-cta-btn about-cta-btn--secondary">Read my case studies</a>
+  </div>
 </section>
 
 
@@ -633,7 +640,7 @@ if (track) {
     slides[cur].classList.add('active');
     syncBar();
     var lbl=document.getElementById('heroSlideLabel');
-    if(lbl)lbl.textContent=cur===0?'9–5 — Strategy, research, direction':'After Hours — Photography, making things';
+    if(lbl){if(cur===0){lbl.style.display='none';}else{lbl.style.display='';lbl.textContent='After Hours — Photography, making things';}}
     if(cur === 0){ thumb.classList.remove('visible'); }
     else { thumb.classList.add('visible'); }
   }

@@ -65,7 +65,6 @@ h1,h2,h3{text-wrap:balance;}
 .mast__name{font-family:'Pecita',cursive;font-weight:normal;font-size:clamp(72px,14vw,210px);line-height:0.9;color:var(--ink);}
 .mast__sub{font-family:'Poppins',sans-serif;font-weight:300;font-size:clamp(13px,1.6vw,22px);color:var(--ink);letter-spacing:0.18em;text-transform:lowercase;}
 .reel{position:absolute;bottom:max(100px,env(safe-area-inset-bottom,0px));left:0;right:0;z-index:2;overflow:visible;}
---card-w-def:calc(20vw - 16px);
 .track{display:flex;gap:var(--gap);width:max-content;animation:reel-scroll var(--speed) linear infinite;}
 .track:hover{animation-play-state:paused;}
 @keyframes reel-scroll{to{transform:translateX(calc(-5*(var(--card-w) + var(--gap))));}}

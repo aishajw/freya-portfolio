@@ -419,7 +419,8 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
 }
 @media(max-width:768px){
   /* Hero: carousel sits higher, name centred in the space above it */
-  .hero{height:78svh;}
+  .hero{height:calc(78svh + 12vw);}
+  :root{--card-w:calc(50vw - 10px);}
   .reel{bottom:40px;}
   .mast{top:8rem;bottom:calc(40px + var(--card-w) + 24px);}
   .work-two-col{padding-top:56px;}

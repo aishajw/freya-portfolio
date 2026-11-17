@@ -158,7 +158,7 @@ h1,h2,h3{text-wrap:balance;}
 .footer__links{display:flex;gap:32px;justify-content:center;margin-top:40px;}
 .footer__links a{font-family:'Poppins',sans-serif;font-weight:300;font-size:13px;color:rgba(255,255,255,.65);text-decoration:none;display:flex;align-items:center;gap:4px;transition:color .15s;letter-spacing:.04em;}
 .footer__links a:hover{color:#fff;}
-.footer__links a::after{content:"↗";font-size:11px;opacity:.6;}
+.footer__links a::after{content:"\2197\FE0E";font-size:11px;opacity:.6;}
 .footer__msg{text-align:center;font-family:'Poppins',sans-serif;font-weight:300;font-size:clamp(16px,1.6vw,22px);color:rgba(255,255,255,.75);line-height:1.75;margin-bottom:56px;}
 .footer__msg a{color:#fff;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.4);}
 .footer__msg a:hover{text-decoration-color:#fff;}
@@ -202,7 +202,7 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
 .footer__links{display:flex;gap:32px;justify-content:center;}
 .footer__links a{font-family:'Poppins',sans-serif;font-weight:300;font-size:13px;color:rgba(255,255,255,.65);text-decoration:none;display:flex;align-items:center;gap:4px;transition:color .15s;letter-spacing:.04em;}
 .footer__links a:hover{color:#fff;}
-.footer__links a::after{content:"↗";font-size:11px;opacity:.6;}
+.footer__links a::after{content:"\2197\FE0E";font-size:11px;opacity:.6;}
 .footer__msg{text-align:center;font-family:'Poppins',sans-serif;font-weight:300;font-size:clamp(16px,1.6vw,22px);color:rgba(255,255,255,.75);line-height:1.75;margin-bottom:56px;}
 .footer__msg a{color:#fff;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.4);}
 .footer__msg a:hover{text-decoration-color:#fff;}
@@ -346,6 +346,10 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
 .flicker-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;box-shadow:0 8px 32px rgba(0,0,0,.25);opacity:0;transform:rotate(2deg);}
 .flicker-img.fi-active{opacity:1;}
 
+/* About buttons (all sizes) */
+.about-cta-btn{font-family:var(--label);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--bg);background:var(--ink);padding:14px 28px;border:none;display:inline-block;white-space:nowrap;}
+.about-cta-btn--secondary{background:transparent;color:var(--ink);border:1.5px solid rgba(0,0,0,.25);}
+.about-cta-inline{display:flex;gap:24px;justify-content:flex-start;padding:8px 48px 72px 248px;background:#fff;}
 @media(max-width:768px){
   :root{--gutter:24px;}
 
@@ -417,7 +421,7 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
   /* Hero: carousel sits higher, name centred in the space above it */
   .hero{height:78svh;}
   .reel{bottom:40px;}
-  .mast{top:6rem;bottom:calc(40px + var(--card-w) + 24px);}
+  .mast{top:8rem;bottom:calc(40px + var(--card-w) + 24px);}
   .work-two-col{padding-top:56px;}
   /* About: white strip behind the nav so text can't show above the sticky image */
   .about-right{top:0;height:calc(68vw + 72px);}
@@ -878,4 +882,22 @@ if (track) {
   <a href="cv.pdf" target="_blank" class="about-cta-btn">Read my CV</a>
   <a href="#work" class="about-cta-btn about-cta-btn--secondary">Read my case studies</a>
 </div>
+<script>
+/* Mobile: release the sticky About image once the last step's heading reaches it,
+   so image 3 scrolls up with its text instead of staying pinned */
+(function(){
+  var mq=matchMedia('(max-width:768px)');
+  var last=document.querySelector('.about-left .about-step:last-child');
+  var cta=document.querySelector('.about-cta-inline');
+  if(!last||!cta)return;
+  function fit(){
+    last.style.marginBottom='';cta.style.marginTop='';
+    if(!mq.matches)return;
+    var h=last.querySelector('h2');
+    var x=last.offsetHeight-(h?h.offsetTop-last.offsetTop:0);
+    if(x>0){last.style.marginBottom=-x+'px';cta.style.marginTop=x+'px';}
+  }
+  addEventListener('load',fit);addEventListener('resize',fit);fit();
+})();
+</script>
 </body></html>

@@ -4,47 +4,55 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Hero Exploration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@800;900&family=Caveat:wght@700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html,body{width:100%;height:100%;overflow:hidden;background:#111;}
+html,body{width:100%;height:100%;overflow:hidden;background:#fff;}
 
-/* ── Full-screen portrait background ── */
-.bg{
+/* ── Masthead text ── */
+.masthead{
   position:fixed;
-  inset:0;
-  z-index:0;
+  top:0;
+  left:0;
+  right:0;
+  z-index:1;
+  padding:clamp(32px,5vw,72px) clamp(24px,5vw,72px) 0;
+  pointer-events:none;
 }
-.bg img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center top;
+
+.masthead__name{
+  font-family:'Raleway',sans-serif;
+  font-weight:900;
+  font-size:clamp(52px,10vw,148px);
+  line-height:.92;
+  letter-spacing:-.02em;
+  text-transform:uppercase;
+  color:#1C1916;
   display:block;
 }
-/* gradient — fades out the bottom so carousel sits cleanly over it */
-.bg::after{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:linear-gradient(
-    to bottom,
-    transparent 30%,
-    rgba(0,0,0,.18) 70%,
-    rgba(0,0,0,.55) 100%
-  );
+
+.masthead__portfolio{
+  font-family:'Caveat',cursive;
+  font-weight:700;
+  font-size:clamp(32px,5vw,76px);
+  line-height:1.1;
+  color:#1C1916;
+  display:block;
+  margin-top:.1em;
+  margin-left:.08em;
 }
 
 /* ── Carousel ── */
 :root{
-  --card-w: calc(20vw - 16px); /* ~5 cards visible */
-  --card-h: 320px;
+  --card-w: calc(20vw - 16px);
   --gap: 20px;
   --speed: 22s;
 }
 @media(max-width:768px){
   :root{
-    --card-w: calc(38vw - 10px); /* ~2.5 cards visible */
-    --card-h: 220px;
+    --card-w: calc(38vw - 10px);
     --gap: 14px;
   }
 }
@@ -58,7 +66,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#111;}
   overflow:hidden;
 }
 @media(max-width:768px){
-  .carousel-wrap{bottom:32px;}
+  .carousel-wrap{bottom:28px;}
 }
 
 .carousel-track{
@@ -67,9 +75,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#111;}
   width:max-content;
   animation:slide var(--speed) linear infinite;
 }
-.carousel-track:hover{
-  animation-play-state:paused;
-}
+.carousel-track:hover{animation-play-state:paused;}
 
 @keyframes slide{
   0%  {transform:translateX(0);}
@@ -82,7 +88,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:#111;}
   flex-shrink:0;
   overflow:hidden;
   border:3px solid #fff;
-  box-shadow:0 8px 40px rgba(0,0,0,.35);
+  box-shadow:0 4px 24px rgba(0,0,0,.12);
+  outline:1px solid rgba(0,0,0,.08);
 }
 .card img{
   width:100%;
@@ -95,9 +102,10 @@ html,body{width:100%;height:100%;overflow:hidden;background:#111;}
 </head>
 <body>
 
-<!-- Background portrait -->
-<div class="bg">
-  <img src="images/hero-thumb-bg.jpg" alt="">
+<!-- Masthead -->
+<div class="masthead">
+  <span class="masthead__name">Freya Young</span>
+  <span class="masthead__portfolio">portfolio</span>
 </div>
 
 <!-- Bottom carousel — 5 cards + duplicate set for seamless loop -->

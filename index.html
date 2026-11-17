@@ -313,7 +313,8 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
 
 
 /* ABOUT */
-.about{background:#fff;padding:72px 0 0;}
+.about{background:#fff;padding:0;}
+.about-header{display:flex;align-items:baseline;padding:72px var(--gutter) 24px;}
 .about-inner{display:flex;flex-direction:row;min-height:100vh;max-width:none;margin:0;align-items:start;}
 .about-left{flex:0 0 auto;padding:2rem 0 0 248px;min-width:0;}
 .about-step{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:80px 0;max-width:568px;}
@@ -374,7 +375,7 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
   .sounds-like__heading{font-size:clamp(22px,6vw,36px);}
 
   /* About — sticky image top, text scrolls below */
-  .about{padding-top:48px;}
+  .about-header{padding:48px 24px 20px;}
   .about-inner{flex-direction:column;}
   .about-right{display:flex;position:sticky;top:0;width:100%;height:68vw;margin-left:0;min-height:0;order:-1;z-index:5;background:#fff;}
   .about-panel{padding:0;inset:16px 20px;border-radius:2px;}
@@ -468,6 +469,9 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
 
 
 <section class="about" id="about">
+  <div class="about-header">
+    <h2 class="work-heading">About me</h2>
+  </div>
   <div class="about-inner">
     <div class="about-left">
       <div class="about-step" data-step="0">
@@ -659,11 +663,18 @@ if (track) {
   }
 
   var lastY = window.scrollY;
+  var aboutSec = document.getElementById('about');
+  function inAboutSec() {
+    if (!aboutSec) return false;
+    var r = aboutSec.getBoundingClientRect();
+    return r.top < window.innerHeight * 0.6 && r.bottom > 100;
+  }
   window.addEventListener('scroll', function(){
     var y = window.scrollY;
     var goingUp = y < lastY;
     lastY = y;
-    if (y > 60 && !goingUp) flipTo('scroll');
+    if (inAboutSec()) flipTo('normal');
+    else if (y > 60 && !goingUp) flipTo('scroll');
     else flipTo('normal');
   }, {passive:true});
 

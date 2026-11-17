@@ -324,11 +324,7 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
 .about-step{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:80px 0;max-width:568px;}
 .about-step+.about-step{border-top:1px solid rgba(0,0,0,.08);}
 .about-step:last-child{padding-bottom:120px;}
-.about-last{display:flex;flex-direction:row;min-height:100vh;align-items:start;border-top:1px solid rgba(0,0,0,.08);}
-.about-last__left{flex:1;padding:2rem 0 0 248px;min-width:0;}
 .about-last__left .about-step{}
-.about-last__right{flex:0 0 auto;margin-left:auto;width:calc(clamp(221px,27.2vw,357px) + 3.8rem + 248px);position:relative;display:flex;align-items:center;padding:80px 248px 80px 3.8rem;}
-.about-last__img{width:clamp(221px,27.2vw,357px);aspect-ratio:4/5;object-fit:cover;display:block;}
 .about-step h2{font-family:'Raleway',var(--sans);font-size:clamp(22px,2.6vw,36px);font-weight:400;line-height:1.2;color:var(--ink);margin-bottom:24px;}
 .about-step p{font-family:'Raleway',var(--sans);font-size:clamp(14px,1.4vw,18px);color:var(--mid);line-height:1.5;margin-bottom:12px;font-weight:400;}
 .about-cta-bar{display:none;}
@@ -395,14 +391,8 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
   .about-left{padding:0 24px;}
   .about-step{min-height:auto;padding:40px 0 32px;}
   .about-left .about-step:first-child{padding-top:16px;}
-  .about-left .about-step:last-child{padding-bottom:32px;}
   .about-step+.about-step{border-top:1px solid rgba(0,0,0,.08);}
   .about-step:last-child{padding-bottom:80px;}
-  .about-last{flex-direction:column;min-height:auto;border-top:1px solid rgba(0,0,0,.08);}
-  .about-last__right{width:100%;height:68vw;padding:0;position:sticky;top:40px;overflow:hidden;background:#fff;order:-1;z-index:5;}
-  .about-last__img{position:absolute;inset:16px 20px;width:calc(100% - 40px);height:calc(100% - 32px);object-fit:cover;aspect-ratio:unset;}
-  .about-last__left{padding:0 24px;}
-  .about-last__left .about-step{padding:40px 0 80px;border-top:1px solid rgba(0,0,0,.08);}
   .about-cta-inline{padding:36px 24px 48px;}
   .about-step p{font-size:16px;}
   .about-meta-org,.about-meta-role{font-size:13px;}
@@ -542,6 +532,10 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
         </div>
       </div>
 
+      <div class="about-step" data-step="2" id="aboutStep2">
+        <h2>I’m a creative at heart — problem solving and ideating are my hammer and anvil</h2>
+        <p>Outside of work I shoot film and I’m learning goldsmithing and jewellery-making at <a href="https://www.nicolabannister.com" target="_blank" style="color:var(--accent)">Nicola Bannister Jewellery</a>. Both come down to the same thing: wanting to understand how something is actually made, not just what it ends up looking like.</p>
+      </div>
     </div>
     <div class="about-right" id="aboutRight">
       <div class="about-panel active" data-panel="0">
@@ -555,18 +549,11 @@ footer{border-top:1px solid var(--bg-band);padding:20px var(--gutter);}
           <img class="ps-img ps-front" src="images/about-award.png" alt="Freya winning National Graduate Awards 2024" style="object-position:center 20%;">
         </div>
       </div>
-
-    </div>
-  </div>
-  <div class="about-last">
-    <div class="about-last__left">
-      <div class="about-step about-last__step" id="aboutStep2">
-        <h2>I’m a creative at heart — problem solving and ideating are my hammer and anvil</h2>
-        <p>Outside of work I shoot film and I’m learning goldsmithing and jewellery-making at <a href="https://www.nicolabannister.com" target="_blank" style="color:var(--accent)">Nicola Bannister Jewellery</a>. Both come down to the same thing: wanting to understand how something is actually made, not just what it ends up looking like.</p>
+      <div class="about-panel" data-panel="2">
+        <div class="photo-stack">
+          <img class="ps-img ps-front" src="images/about-panel-2.jpg" alt="" style="object-position:center 30%;">
+        </div>
       </div>
-    </div>
-    <div class="about-last__right">
-      <img class="about-last__img" src="images/about-panel-2.jpg" alt="" style="object-position:center 30%">
     </div>
   </div>
   <div class="about-cta-inline">
@@ -725,7 +712,7 @@ if (track) {
 
 <script>
 (function(){
-  var steps  = document.querySelectorAll('#about .about-inner .about-step');
+  var steps  = document.querySelectorAll('.about-step');
   var panels = document.querySelectorAll('.about-panel');
   if (!steps.length) return;
   var curActive = -1;

@@ -1,26 +1,17 @@
 # Freya Young — Portfolio
 
-**Live repo:** https://github.com/aishajw/freya-portfolio  
-**Design reference:** https://anju.design/ (layout, typography feel, case study structure)
-
----
-
 ## Hi Freya 👋
 
-This is your portfolio codebase. Everything is plain HTML, CSS, and a little JavaScript — no frameworks, no build step. You can open any file directly in a browser or edit it here with Claude.
-
-**To make changes with Claude:** open this folder in Claude Code (or drag it into a Claude conversation), describe what you want to change, and Claude will edit the files and show you a preview. You can then commit and push to GitHub.
+This is **version 2**.
 
 ### Good to know
 
-- **Open the repo in Claude:** copy this link into Claude so it can see the repo and you can start editing: https://github.com/aishajw/freya-portfolio/tree/version-2
-- **There are 2 pages:** `index.html` (your homepage) and `case-study.html` (the case study page). Both are in this folder.
-- **Your live site:** https://aishajw.github.io/freya-portfolio/ — it's hosted with **GitHub Pages**, which publishes whatever is on the `version-2` branch. (`version-1` is the old design, with the clickable photos on the right. It isn't online.)
-- **Updates take a minute or so to show.** After Claude pushes a change, GitHub Pages rebuilds the site. Wait about a minute, then refresh. If it still looks old, close the tab and open the link again (your phone may be holding on to the old version).
-- **To see changes straight away** without waiting, open `index.html` from this folder in your browser — that shows your local copy.
-- **To see the mobile view on your laptop:** in Chrome, press **Cmd + Option + I** to open the developer tools. In the top-left corner of the panel that opens, click the **phone-and-tablet icon** (it's next to the arrow icon; hovering over it says "Toggle device toolbar"). Pick a phone, like iPhone 14, from the menu at the top of the page, or drag the edges to change the size. Press **Cmd + Option + I** again to close it.
-  - **Shortcut:** once the developer tools are open (Cmd + Option + I), click anywhere inside that panel, then press **Cmd + Shift + M** to switch between laptop and mobile view.
-- **Looking for nice fonts?** Browse https://facetypes.xyz/ for ideas. When you find one you like, tell Claude its name and Claude can add it to the site.
+- Paste this link into Claude so you can start editing: https://github.com/aishajw/freya-portfolio
+- There are two versions. The one on the live preview (https://aishajw.github.io/freya-portfolio/) is **version 2**. You can ask Claude to open the index page for both versions so you can see which you prefer.
+- There's also a case study page (`case-study.html`) that Aisha started on.
+- Changes to version 2 take a minute or so to show on the live preview. If it still looks the same, refresh.
+- To see the mobile view on your laptop in Chrome, press **Cmd + Option + I**, then click the phone-and-tablet icon in the top-left corner of the panel. Shortcut: click inside that panel and press **Cmd + Shift + M**.
+- For nice fonts, have a look at https://facetypes.xyz/
 
 ---
 

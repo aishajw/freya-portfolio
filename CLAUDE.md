@@ -17,7 +17,7 @@ This is your portfolio codebase. Everything is plain HTML, CSS, and a little Jav
 - **Your live site:** https://aishajw.github.io/freya-portfolio/ — it's hosted with **GitHub Pages**, which publishes whatever is on the `version-2` branch. (`version-1` is the old design, with the clickable photos on the right. It isn't online.)
 - **Updates take a minute or so to show.** After Claude pushes a change, GitHub Pages rebuilds the site. Wait about a minute, then refresh. If it still looks old, close the tab and open the link again (your phone may be holding on to the old version).
 - **To see changes straight away** without waiting, open `index.html` from this folder in your browser — that shows your local copy.
-- **To see the mobile view on your laptop:** in Chrome, press **Cmd + Option + I** to open the developer tools, then press **Cmd + Shift + M** (or click the little phone-and-tablet icon at the top left of the panel). Pick a phone, like iPhone 14, from the menu at the top of the page, or drag the edges to change the size. Press **Cmd + Option + I** again to close it.
+- **To see the mobile view on your laptop:** in Chrome, press **Cmd + Option + I** to open the developer tools. In the top-left corner of the panel that opens, click the **phone-and-tablet icon** (it's next to the arrow icon; hovering over it says "Toggle device toolbar"). Pick a phone, like iPhone 14, from the menu at the top of the page, or drag the edges to change the size. Press **Cmd + Option + I** again to close it.
 
 ---
 

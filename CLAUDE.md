@@ -39,8 +39,6 @@ This is your portfolio codebase. Everything is plain HTML, CSS, and a little Jav
 
 ## Notes for Claude
 
-- **Never use** `/Users/aishajw/Downloads/profile.jpg` — Freya has explicitly said not to use this image anywhere on the site
-- Only use images Freya explicitly provides by filename
 - The homepage hero has 5 images embedded as base64 (large file ~4MB) — use Python for image encoding/replacement rather than trying to edit the base64 directly
 - Font for About h2 and About step paragraphs is Raleway
 - Work section background is `#fff`

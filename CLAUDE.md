@@ -14,9 +14,10 @@ This is your portfolio codebase. Everything is plain HTML, CSS, and a little Jav
 ### Good to know
 
 - **There are 2 pages:** `index.html` (your homepage) and `case-study.html` (the case study page). Both are in this folder.
-- **Your live site:** https://aishajw.github.io/freya-portfolio/ — it's hosted with **GitHub Pages**, which publishes whatever is on the `v2` branch.
+- **Your live site:** https://aishajw.github.io/freya-portfolio/ — it's hosted with **GitHub Pages**, which publishes whatever is on the `version-2` branch. (`version-1` is the old design, with the clickable photos on the right. It isn't online.)
 - **Updates take a minute or so to show.** After Claude pushes a change, GitHub Pages rebuilds the site. Wait about a minute, then refresh. If it still looks old, close the tab and open the link again (your phone may be holding on to the old version).
 - **To see changes straight away** without waiting, open `index.html` from this folder in your browser — that shows your local copy.
+- **To see the mobile view on your laptop:** in Chrome, press **Cmd + Option + I** to open the developer tools, then press **Cmd + Shift + M** (or click the little phone-and-tablet icon at the top left of the panel). Pick a phone, like iPhone 14, from the menu at the top of the page, or drag the edges to change the size. Press **Cmd + Option + I** again to close it.
 
 ---
 
@@ -48,7 +49,7 @@ This is your portfolio codebase. Everything is plain HTML, CSS, and a little Jav
 
 - **Never use** `/Users/aishajw/Downloads/profile.jpg` — Freya has explicitly said not to use this image anywhere on the site
 - Only use images Freya explicitly provides by filename
-- Hosting is GitHub Pages from the `v2` branch (no Netlify). After pushing, check `gh api repos/aishajw/freya-portfolio/pages/builds/latest` until `built`, then tell Freya to refresh
+- Hosting is GitHub Pages from the `version-2` branch (`version-1` = old design, not published) (no Netlify). After pushing, check `gh api repos/aishajw/freya-portfolio/pages/builds/latest` until `built`, then tell Freya to refresh
 - The homepage hero carousel uses image files `images/hero-slide-1.jpg` to `hero-slide-5.jpg`
 - Font for About h2 and About step paragraphs is Raleway
 - Work section background is `#fff`

@@ -19,6 +19,7 @@ This is your portfolio codebase. Everything is plain HTML, CSS, and a little Jav
 - **To see changes straight away** without waiting, open `index.html` from this folder in your browser — that shows your local copy.
 - **To see the mobile view on your laptop:** in Chrome, press **Cmd + Option + I** to open the developer tools. In the top-left corner of the panel that opens, click the **phone-and-tablet icon** (it's next to the arrow icon; hovering over it says "Toggle device toolbar"). Pick a phone, like iPhone 14, from the menu at the top of the page, or drag the edges to change the size. Press **Cmd + Option + I** again to close it.
   - **Shortcut:** once the developer tools are open (Cmd + Option + I), click anywhere inside that panel, then press **Cmd + Shift + M** to switch between laptop and mobile view.
+- **Looking for nice fonts?** Browse https://facetypes.xyz/ for ideas. When you find one you like, tell Claude its name and Claude can add it to the site.
 
 ---
 

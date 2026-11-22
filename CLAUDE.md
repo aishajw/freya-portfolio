@@ -11,6 +11,7 @@ This is **version 2**.
 - There's also a case study page (`case-study.html`) that Aisha started on.
 - The live preview uses GitHub Pages, so there's a delay between making an update and seeing it on the live preview link. To see your updates immediately, make sure you have `index.html` open in your browser.
 - To see the mobile view on your laptop in Chrome, press **Cmd + Option + I**, then click the phone-and-tablet icon in the top-left corner of the panel.
+- This is a nice layout of a portfolio: https://hacklab.framer.website/
 - For nice fonts, have a look at https://facetypes.xyz/
 
 ---

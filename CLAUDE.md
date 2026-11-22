@@ -27,7 +27,7 @@ This is your portfolio codebase. Everything is plain HTML, CSS, and a little Jav
 
 | File | What it is |
 |------|------------|
-| `index.html` | **Homepage** — hero with 5 rotating photos, chips, progress bar, Selected Works cards, About section |
+| `index.html` | **Homepage** — hero with your name and a scrolling row of photos, "here's some of my work" cards, About section, and the teal "Let's connect!" footer |
 | `case-study.html` | **Case study template** — copy this file and rename it for each project (e.g. `visa-checkout.html`) |
 
 ### To create a new case study page
@@ -41,22 +41,23 @@ This is your portfolio codebase. Everything is plain HTML, CSS, and a little Jav
 
 ## Design system
 
-- **Fonts:** Cormorant Garamond (serif headings), DM Sans (body), Raleway (labels/chips/UI)
-- **Colours:** `--ink: #1A1A18` / `--mid: #6B6B62` / `--blue: #3D6080` / `--accent: #7A5C3A` / `--cream: #F9F7F4`
-- **Style reference:** https://anju.design/ — full-bleed hero, editorial serif type, clean white/cream backgrounds, concave hero-to-content transition, right-side dot nav on case studies
+**Homepage (`index.html`)**
+- **Fonts:** Pecita, a handwritten font, for "Freya Young", "my work", "It's nice to meet you! I'm Freya" and "Let's connect!". Poppins for body text, labels and chips. Raleway for the other About headings.
+- **Colours:** white background (`#fff`) / text `--ink: #1C1916` / grey text `--mid: #5A5450` / teal `--teal: #3AB5AD` (Contact button and footer) / brown links `--accent: #7A5C3A`
+- **Layout:** hero = name in the middle, scrolling row of square photos underneath. Work cards = overlapping collage on desktop, stacked full cards in white frames on mobile. About = text on the left, a pinned photo on the right that changes for each section (on mobile the photo is pinned at the top).
+
+**Case study page (`case-study.html`)**
+- Still uses the older styling: Cormorant Garamond headings, DM Sans body, Raleway labels, cream background. It hasn't been restyled to match the homepage yet.
 
 ---
 
 ## Notes for Claude
 
-- **Never use** `/Users/aishajw/Downloads/profile.jpg` — Freya has explicitly said not to use this image anywhere on the site
-- Only use images Freya explicitly provides by filename
 - Hosting is GitHub Pages from the `version-2` branch (`version-1` = old design, not published) (no Netlify). After pushing, check `gh api repos/aishajw/freya-portfolio/pages/builds/latest` until `built`, then tell Freya to refresh
 - The homepage hero carousel uses image files `images/hero-slide-1.jpg` to `hero-slide-5.jpg`
-- Font for About h2 and About step paragraphs is Raleway
+- About headings: the first (`data-step="0"`) is Pecita, the rest are Raleway 400. About paragraphs are Poppins
 - Work section background is `#fff`
 - Hero height is `100svh` on desktop; on mobile it's shorter (`78svh + 12vw`) so the work heading sits just under the carousel
 - Spacing: 24px side gutters on mobile, 72px on desktop; 16px under bars/search/chips/tabs; 8px between chip rows
 - Chips use `border-radius:0` (square), `text-transform:uppercase`
-- The turquoise progress bar colour is `#3AB5AD`
-- Case study pages: hero is `position:sticky;top:0;z-index:1` so the cream body scrolls over it with a concave arch (`.cs-body::before` handles the arch shape)
+- Case study page: hero is `position:sticky;top:0;z-index:1` so the cream body scrolls over it

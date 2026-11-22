@@ -1,5 +1,10 @@
 # Freya Young — Portfolio
 
+> **⚠️ This is `version-1`, the old design. It isn't online. Don't make changes here.**
+> The current site is **`version-2`**, which is what https://aishajw.github.io/freya-portfolio/ shows. To switch to it, ask Claude to "switch to the version-2 branch", or run `git checkout version-2`.
+>
+> **Note for Claude:** if someone asks to change the site while this branch is checked out, stop. Tell them they're on the old version and offer to switch to `version-2` first.
+
 **Live repo:** https://github.com/aishajw/freya-portfolio  
 **Design reference:** https://anju.design/ (layout, typography feel, case study structure)
 

@@ -9,7 +9,7 @@ This is **version 1**.
 - Paste this link into Claude so you can start editing: https://github.com/aishajw/freya-portfolio
 - There are two versions. The one on the live preview (https://aishajw.github.io/freya-portfolio/) is **version 2**. You can ask Claude to open the index page for both versions so you can see which you prefer.
 - There's also a case study page (`case-study.html`) that Aisha started on.
-- To see the mobile view on your laptop in Chrome, press **Cmd + Option + I**, then click the phone-and-tablet icon in the top-left corner of the panel. Shortcut: click inside that panel and press **Cmd + Shift + M**.
+- To see the mobile view on your laptop in Chrome, press **Cmd + Option + I**, then click the phone-and-tablet icon in the top-left corner of the panel.
 - For nice fonts, have a look at https://facetypes.xyz/
 
 ---

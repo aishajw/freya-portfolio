@@ -13,6 +13,7 @@ This is your portfolio codebase. Everything is plain HTML, CSS, and a little Jav
 
 ### Good to know
 
+- **Open the repo in Claude:** copy this link into Claude so it can see the repo and you can start editing: https://github.com/aishajw/freya-portfolio/tree/version-2
 - **There are 2 pages:** `index.html` (your homepage) and `case-study.html` (the case study page). Both are in this folder.
 - **Your live site:** https://aishajw.github.io/freya-portfolio/ — it's hosted with **GitHub Pages**, which publishes whatever is on the `version-2` branch. (`version-1` is the old design, with the clickable photos on the right. It isn't online.)
 - **Updates take a minute or so to show.** After Claude pushes a change, GitHub Pages rebuilds the site. Wait about a minute, then refresh. If it still looks old, close the tab and open the link again (your phone may be holding on to the old version).

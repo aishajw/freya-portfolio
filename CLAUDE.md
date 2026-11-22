@@ -11,6 +11,13 @@ This is your portfolio codebase. Everything is plain HTML, CSS, and a little Jav
 
 **To make changes with Claude:** open this folder in Claude Code (or drag it into a Claude conversation), describe what you want to change, and Claude will edit the files and show you a preview. You can then commit and push to GitHub.
 
+### Good to know
+
+- **There are 2 pages:** `index.html` (your homepage) and `case-study.html` (the case study page). Both are in this folder.
+- **Your live site:** https://aishajw.github.io/freya-portfolio/ — it's hosted with **GitHub Pages**, which publishes whatever is on the `v2` branch.
+- **Updates take a minute or so to show.** After Claude pushes a change, GitHub Pages rebuilds the site. Wait about a minute, then refresh. If it still looks old, close the tab and open the link again (your phone may be holding on to the old version).
+- **To see changes straight away** without waiting, open `index.html` from this folder in your browser — that shows your local copy.
+
 ---
 
 ## File structure
@@ -41,10 +48,11 @@ This is your portfolio codebase. Everything is plain HTML, CSS, and a little Jav
 
 - **Never use** `/Users/aishajw/Downloads/profile.jpg` — Freya has explicitly said not to use this image anywhere on the site
 - Only use images Freya explicitly provides by filename
-- The homepage hero has 5 images embedded as base64 (large file ~4MB) — use Python for image encoding/replacement rather than trying to edit the base64 directly
+- Hosting is GitHub Pages from the `v2` branch (no Netlify). After pushing, check `gh api repos/aishajw/freya-portfolio/pages/builds/latest` until `built`, then tell Freya to refresh
+- The homepage hero carousel uses image files `images/hero-slide-1.jpg` to `hero-slide-5.jpg`
 - Font for About h2 and About step paragraphs is Raleway
 - Work section background is `#fff`
-- Hero height is `100svh`
+- Hero height is `100svh` on desktop; on mobile it's shorter (`78svh + 12vw`) so the work heading sits just under the carousel
 - Spacing: 24px side gutters on mobile, 72px on desktop; 16px under bars/search/chips/tabs; 8px between chip rows
 - Chips use `border-radius:0` (square), `text-transform:uppercase`
 - The turquoise progress bar colour is `#3AB5AD`
